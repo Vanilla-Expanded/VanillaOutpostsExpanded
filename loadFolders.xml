@@ -1,0 +1,7 @@
+<loadFolders>
+	<v1.3>
+		<li>/</li>
+		<li IfModActive="vanillaexpanded.vcef">Fishing</li>
+		<li IfModActive="oskarpotocki.vfe.mechanoid">Factory</li>
+	</v1.3>
+</loadFolders>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+<WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Factory</defName>
+    <label>factory outpost</label>
+    <description>todo</description>
+    <worldObjectClass>FactoryOutpost.Outpost_Factory</worldObjectClass>
+    <expandingIconTexture>WorldObjects/OutpostFactory</expandingIconTexture>
+  </WorldObjectDef>
+</Defs>

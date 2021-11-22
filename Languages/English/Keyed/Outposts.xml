@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <Outposts.Commands.Fire.Label>Artillery Strike</Outposts.Commands.Fire.Label>
+    <Outposts.Commands.Fire.Desc>Begin targeting for an artillery strike</Outposts.Commands.Fire.Desc>
+    <Outposts.Commands.Disabled.Cooldown>Still on cooldown</Outposts.Commands.Disabled.Cooldown>
+    <Outposts.Cooldown>On cooldown: {0} left</Outposts.Cooldown>
+    <Outposts.Letters.Intercept.Label>Raid Intercepted</Outposts.Letters.Intercept.Label>
+    <Outposts.Letters.Intercept.Text>A raid bound for {0} has been intercepted by the defensive outpost {0}. Hopefully they can survive this brave maneuver.</Outposts.Letters.Intercept.Text>
+    <Outposts.Commands.Deploy.Label>Send Reinforcements</Outposts.Commands.Deploy.Label>
+    <Outposts.Commands.Deploy.Desc>Deploy the garrison of this outpost in drop pods to assist one of your combat engagements.</Outposts.Commands.Deploy.Desc>
+    <Outposts.Commands.Deploy.Disabled>Cannot send: Drop pods are not available to you</Outposts.Commands.Deploy.Disabled>
+    <Outposts.Drilling>Drilling boreholes. {0} done. Estimated time remaining: {1}</Outposts.Drilling>
+    <Outposts.MustBeMade>Must be made in the {0}</Outposts.MustBeMade>
+    <Outposts.MustBeMade.Hill>Must be made in mountains or hills</Outposts.MustBeMade.Hill>
+    <Outposts.Commands.Mining.Label>Mining {0}</Outposts.Commands.Mining.Label>
+    <Outposts.Commands.Mining.Desc>Click to change mining target.</Outposts.Commands.Mining.Desc>
+    <Outposts.SkillTooLow>Total skill too low, needs {0}</Outposts.SkillTooLow>
+    <Outposts.Command.Comp.Label>Choose output</Outposts.Command.Comp.Label>
+    <Outposts.Command.Comp.Desc>Choose between components and advanced components</Outposts.Command.Comp.Desc>
+    <Outposts.NearbySettlements>Not enough nearby settlements, need {0} within {1} tiles</Outposts.NearbySettlements>
+    <Outposts.Letters.Recruit.Label>Pawns Recruited: {0}</Outposts.Letters.Recruit.Label>
+    <Outposts.Letters.Recruit.Desc>The following pawns have been newly recruited in the town of {0}</Outposts.Letters.Recruit.Desc>
+    <Outposts.Commands.Factory.Label>Change Factory</Outposts.Commands.Factory.Label>
+    <Outposts.Commands.Factory.Desc>Change which factory building this outpost uses to produce items for you</Outposts.Commands.Factory.Desc>
+    <Outposts.Commands.Comb.Label>Change Result</Outposts.Commands.Comb.Label>
+    <Outposts.Commands.Comb.Desc>Change what the factory produces</Outposts.Commands.Comb.Desc>
+    <Outposts.MustHaveInCaravan>Must have {0} {1} in caravan</Outposts.MustHaveInCaravan>
+    <Outposts.MustBeOnCoast>Must be made on the coast</Outposts.MustBeOnCoast>
+</LanguageData>

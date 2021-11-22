@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <WorldObjectDef Name="OutpostBase" Abstract="True">
+    <useDynamicDrawer>false</useDynamicDrawer>
+    <expandingIcon>true</expandingIcon>
+    <expandingIconPriority>100</expandingIconPriority>
+    <expandMore>false</expandMore>
+    <worldObjectClass>Outposts.Outpost</worldObjectClass>
+  </WorldObjectDef>
+
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Farming</defName>
+    <label>farming outpost</label>
+    <description>Places a temporary, autonomously-led camp that specializes in sowing and harvesting easily-grown vegetation, cannot be placed on deserts. Once an ample amount is collected, a delivery will be made at the outskirts of a faction's primary colony.</description>
+    <expandingIconTexture>WorldObjects/OutpostFarming</expandingIconTexture>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension">
+        <DisallowedBiomes>
+          <li>Desert</li>
+          <li>ExtremeDesert</li>
+        </DisallowedBiomes>
+        <RequiredSkills>
+          <Plants>10</Plants>
+        </RequiredSkills>
+        <ProvidedFood>MealFine_Veg</ProvidedFood>
+        <ResultOptions>
+          <li>
+            <AmountsPerSkills>
+              <Plants>15</Plants>
+            </AmountsPerSkills>
+            <Thing>RawPotatoes</Thing>
+          </li>
+          <li>
+            <AmountsPerSkills>
+              <Plants>5</Plants>
+            </AmountsPerSkills>
+            <Thing>RawCorn</Thing>
+          </li>
+        </ResultOptions>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Artillery</defName>
+    <label>artillery outpost</label>
+    <description>todo</description>
+    <worldObjectClass>VOE.Outpost_Artillery</worldObjectClass>
+    <expandingIconTexture>WorldObjects/OutpostArtillery</expandingIconTexture>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension">
+        <DisplaySkills>
+          <li>Intellectual</li>
+          <li>Shooting</li>
+        </DisplaySkills>
+        <TicksPerProduction>-1</TicksPerProduction>
+        <Range>15</Range>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Defensive</defName>
+    <label>defensive outpost</label>
+    <description>todo</description>
+    <worldObjectClass>VOE.Outpost_Defensive</worldObjectClass>
+    <expandingIconTexture>WorldObjects/OutpostDefensive</expandingIconTexture>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension">
+         <TicksPerProduction>-1</TicksPerProduction>
+         <Range>15</Range>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Drilling</defName>
+    <label>drilling outpost</label>
+    <description>todo</description>
+    <worldObjectClass>VOE.Outpost_Drilling</worldObjectClass>
+    <expandingIconTexture>WorldObjects/OutpostDrilling</expandingIconTexture>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension">
+        <AllowedBiomes>
+          <li>Desert</li>
+          <li>ExtremeDesert</li>
+        </AllowedBiomes>
+        <RequiredSkills>
+          <Construction>20</Construction>
+        </RequiredSkills>
+        <ProvidedFood>MealFine_Veg</ProvidedFood>
+        <ResultOptions>
+          <li>
+            <BaseAmount>500</BaseAmount>
+            <Thing>Chemfuel</Thing>
+          </li>
+        </ResultOptions>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Encampment</defName>
+    <label>encampment</label>
+    <description>todo</description>
+    <worldObjectClass>VOE.Outpost_Encampment</worldObjectClass>
+    <expandingIconTexture>WorldObjects/OutpostEncampment</expandingIconTexture>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension">
+        <ProvidedFood>Pemmican</ProvidedFood>
+        <TicksPerProduction>-1</TicksPerProduction>
+        <TicksToPack>17500</TicksToPack>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Hunting</defName>
+    <label>hunting outpost</label>
+    <description>Places a temporary, autonomously-led camp that specializes in hunting and butchering wildlife. Once an ample amount is collected, a delivery will be made at the outskirts of a faction's primary colony.</description>
+    <worldObjectClass>VOE.Outpost_Hunting</worldObjectClass>
+    <expandingIconTexture>WorldObjects/OutpostHunting</expandingIconTexture>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension">
+        <ProvidedFood>MealFine_Meat</ProvidedFood>
+        <DisplaySkills>
+          <li>Animals</li>
+          <li>Shooting</li>
+        </DisplaySkills>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Logging</defName>
+    <label>logging outpost</label>
+    <description>Places a temporary, autonomously-led camp that specializes in collecting wood from trees in the areas, cannot be placed on deserts. Once an ample amount is collected, a delivery will be made at the outskirts of a faction's primary colony.</description>
+    <expandingIconTexture>WorldObjects/OutpostLogging</expandingIconTexture>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension">
+        <DisallowedBiomes>
+          <li>Desert</li>
+          <li>ExtremeDesert</li>
+        </DisallowedBiomes>
+        <MinPawns>3</MinPawns>
+        <ProvidedFood>MealFine_Veg</ProvidedFood>
+        <ResultOptions>
+          <li>
+            <AmountPerPawn>300</AmountPerPawn>
+            <Thing>WoodLog</Thing>
+          </li>
+        </ResultOptions>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Mining</defName>
+    <label>mining outpost</label>
+    <description>Places a temporary, autonomously-led camp that specializes in collecting and processing stone or metal, can only be placed on hills or mountains. Once an ample amount is collected, a delivery will be made at the outskirts of a faction's primary colony.</description>
+    <worldObjectClass>VOE.Outpost_Mining</worldObjectClass>
+    <expandingIconTexture>WorldObjects/OutpostMining</expandingIconTexture>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension">
+        <DisallowedBiomes>
+          <li>Desert</li>
+          <li>ExtremeDesert</li>
+        </DisallowedBiomes>
+        <MinPawns>3</MinPawns>
+        <RequiredSkills>
+          <Mining>10</Mining>
+        </RequiredSkills>
+        <ResultOptions>
+          <li>
+            <BaseAmount>750</BaseAmount>
+            <Thing>Steel</Thing>
+            <MinSkills>
+              <Mining>15</Mining>
+            </MinSkills>
+          </li>
+          <li>
+            <BaseAmount>750</BaseAmount>
+            <Thing>Jade</Thing>
+            <MinSkills>
+              <Mining>20</Mining>
+            </MinSkills>
+          </li>
+          <li>
+            <BaseAmount>750</BaseAmount>
+            <Thing>Uranium</Thing>
+            <MinSkills>
+              <Mining>25</Mining>
+            </MinSkills>
+          </li>
+          <li>
+            <BaseAmount>750</BaseAmount>
+            <Thing>Silver</Thing>
+            <MinSkills>
+              <Mining>30</Mining>
+            </MinSkills>
+          </li>
+          <li>
+            <BaseAmount>750</BaseAmount>
+            <Thing>Gold</Thing>
+            <MinSkills>
+              <Mining>35</Mining>
+            </MinSkills>
+          </li>
+          <li>
+            <BaseAmount>750</BaseAmount>
+            <Thing>Plasteel</Thing>
+            <MinSkills>
+              <Mining>40</Mining>
+            </MinSkills>
+          </li>
+          <li>
+            <BaseAmount>750</BaseAmount>
+            <Thing>ComponentIndustrial</Thing>
+            <MinSkills>
+              <Mining>50</Mining>
+            </MinSkills>
+          </li>
+        </ResultOptions>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Production</defName>
+    <label>production outpost</label>
+    <description>todo</description>
+    <worldObjectClass>VOE.Outpost_Production</worldObjectClass>
+    <expandingIconTexture>WorldObjects/OutpostProduction</expandingIconTexture>
+  </WorldObjectDef>
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Scavenging</defName>
+    <label>scavenging outpost</label>
+    <description>todo</description>
+    <worldObjectClass>VOE.Outpost_Scavenging</worldObjectClass>
+    <expandingIconTexture>WorldObjects/OutpostScavenging</expandingIconTexture>
+  </WorldObjectDef>
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Science</defName>
+    <label>science outpost</label>
+    <description>todo</description>
+    <worldObjectClass>VOE.Outpost_Science</worldObjectClass>
+    <expandingIconTexture>WorldObjects/OutpostScience</expandingIconTexture>
+  </WorldObjectDef>
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Town</defName>
+    <label>town</label>
+    <description>todo</description>
+    <worldObjectClass>VOE.Outpost_Town</worldObjectClass>
+    <expandingIconTexture>WorldObjects/OutpostTown</expandingIconTexture>
+  </WorldObjectDef>
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Trading</defName>
+    <label>trading outpost</label>
+    <description>Places a temporary, autonomously-led camp that specializes in selling and bartering with wanderers, caravans, and natives alike in exchange for silver. Once an ample amount is collected, a delivery will be made at the outskirts of a faction's primary colony.</description>
+    <worldObjectClass>VOE.Outpost_Trading</worldObjectClass>
+    <expandingIconTexture>WorldObjects/OutpostTrading</expandingIconTexture>
+  </WorldObjectDef>
+</Defs>
