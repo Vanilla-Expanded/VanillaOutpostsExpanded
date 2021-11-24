@@ -70,11 +70,9 @@
     <Compile Include="Outpost_Encampment.cs" />
     <Compile Include="Outpost_Hunting.cs" />
     <Compile Include="Outpost_Mining.cs" />
-    <Compile Include="Outpost_Production.cs" />
     <Compile Include="Outpost_Scavenging.cs" />
     <Compile Include="Outpost_Science.cs" />
     <Compile Include="Outpost_Town.cs" />
-    <Compile Include="Outpost_Trading.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

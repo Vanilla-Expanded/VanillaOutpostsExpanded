@@ -9,8 +9,6 @@ namespace VOE
 {
     public class Outpost_Town : Outpost
     {
-        public override ThingDef ProvidedFood => ThingDefOf.MealFine;
-
         public override void Produce()
         {
             var newPawns = new List<Pawn>();
@@ -28,11 +26,8 @@ namespace VOE
                     new LookTargets(Gen.YieldSingle(this)));
         }
 
-        public static string CanSpawnOnWith(int tile, List<Pawn> pawns)
-        {
-            if (Find.WorldObjects.Settlements.Count(s => Find.WorldGrid.ApproxDistanceInTiles(s.Tile, tile) < 10) < 3)
-                return "Outposts.NearbySettlements".Translate(3, 10);
-            return pawns.Count < 5 ? "Outposts.NotEnoughPawns".Translate(5) : null;
-        }
+        public static string CanSpawnOnWith(int tile, List<Pawn> pawns) => Find.WorldObjects.Settlements.Count(s => Find.WorldGrid.ApproxDistanceInTiles(s.Tile, tile) < 10) < 3
+            ? "Outposts.NearbySettlements".Translate(3, 10)
+            : null;
     }
 }

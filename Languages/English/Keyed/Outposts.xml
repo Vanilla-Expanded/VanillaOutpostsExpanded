@@ -12,11 +12,7 @@
     <Outposts.Drilling>Drilling boreholes. {0} done. Estimated time remaining: {1}</Outposts.Drilling>
     <Outposts.MustBeMade>Must be made in the {0}</Outposts.MustBeMade>
     <Outposts.MustBeMade.Hill>Must be made in mountains or hills</Outposts.MustBeMade.Hill>
-    <Outposts.Commands.Mining.Label>Mining {0}</Outposts.Commands.Mining.Label>
-    <Outposts.Commands.Mining.Desc>Click to change mining target.</Outposts.Commands.Mining.Desc>
     <Outposts.SkillTooLow>Total skill too low, needs {0}</Outposts.SkillTooLow>
-    <Outposts.Command.Comp.Label>Choose output</Outposts.Command.Comp.Label>
-    <Outposts.Command.Comp.Desc>Choose between components and advanced components</Outposts.Command.Comp.Desc>
     <Outposts.NearbySettlements>Not enough nearby settlements, need {0} within {1} tiles</Outposts.NearbySettlements>
     <Outposts.Letters.Recruit.Label>Pawns Recruited: {0}</Outposts.Letters.Recruit.Label>
     <Outposts.Letters.Recruit.Desc>The following pawns have been newly recruited in the town of {0}</Outposts.Letters.Recruit.Desc>

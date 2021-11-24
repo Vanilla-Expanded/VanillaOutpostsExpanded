@@ -154,15 +154,16 @@
     <worldObjectClass>VOE.Outpost_Mining</worldObjectClass>
     <expandingIconTexture>WorldObjects/OutpostMining</expandingIconTexture>
     <modExtensions>
-      <li Class="Outposts.OutpostExtension">
+      <li Class="Outposts.OutpostExtension_Choose">
         <DisallowedBiomes>
           <li>Desert</li>
           <li>ExtremeDesert</li>
         </DisallowedBiomes>
-        <MinPawns>3</MinPawns>
         <RequiredSkills>
           <Mining>10</Mining>
         </RequiredSkills>
+        <ChooseLabel>Mining {0}</ChooseLabel>
+        <ChooseDesc>Click to change mining target.</ChooseDesc>
         <ResultOptions>
           <li>
             <BaseAmount>750</BaseAmount>
@@ -221,8 +222,35 @@
     <defName>Outpost_Production</defName>
     <label>production outpost</label>
     <description>todo</description>
-    <worldObjectClass>VOE.Outpost_Production</worldObjectClass>
+    <worldObjectClass>Outposts.Outpost_ChooseResult</worldObjectClass>
     <expandingIconTexture>WorldObjects/OutpostProduction</expandingIconTexture>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension_Choose">
+        <RequiredSkills>
+          <Crafting>10</Crafting>
+        </RequiredSkills>
+        <ChooseLabel>Choose output</ChooseLabel>
+        <ChooseDesc>Choose between components and advanced components</ChooseDesc>
+        <ResultOptions>
+          <li>
+            <Thing>ComponentIndustrial</Thing>
+            <AmountsPerSkills>
+              <Crafting>10</Crafting>
+            </AmountsPerSkills>
+          </li>
+          <li>
+            <BaseAmount>750</BaseAmount>
+            <Thing>ComponentSpacer</Thing>
+            <MinSkills>
+              <Crafting>50</Crafting>
+            </MinSkills>
+            <AmountsPerSkills>
+              <Crafting>2</Crafting>
+            </AmountsPerSkills>
+          </li>
+        </ResultOptions>
+      </li>
+    </modExtensions>
   </WorldObjectDef>
   <WorldObjectDef ParentName="OutpostBase">
     <defName>Outpost_Scavenging</defName>
@@ -230,6 +258,11 @@
     <description>todo</description>
     <worldObjectClass>VOE.Outpost_Scavenging</worldObjectClass>
     <expandingIconTexture>WorldObjects/OutpostScavenging</expandingIconTexture>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension">
+        <ProvidedFood>Pemmican</ProvidedFood>
+      </li>
+    </modExtensions>
   </WorldObjectDef>
   <WorldObjectDef ParentName="OutpostBase">
     <defName>Outpost_Science</defName>
@@ -237,6 +270,15 @@
     <description>todo</description>
     <worldObjectClass>VOE.Outpost_Science</worldObjectClass>
     <expandingIconTexture>WorldObjects/OutpostScience</expandingIconTexture>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension">
+        <ProvidedFood>MealFine</ProvidedFood>
+        <TicksPerProduction>-1</TicksPerProduction>
+        <RequiredSkills>
+          <Intellectual>30</Intellectual>
+        </RequiredSkills>
+      </li>
+    </modExtensions>
   </WorldObjectDef>
   <WorldObjectDef ParentName="OutpostBase">
     <defName>Outpost_Town</defName>
@@ -244,12 +286,37 @@
     <description>todo</description>
     <worldObjectClass>VOE.Outpost_Town</worldObjectClass>
     <expandingIconTexture>WorldObjects/OutpostTown</expandingIconTexture>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension">
+        <ProvidedFood>MealFine</ProvidedFood>
+        <TicksPerProduction>-1</TicksPerProduction>
+        <RequiredSkills>
+          <Intellectual>30</Intellectual>
+        </RequiredSkills>
+        <MinPawns>5</MinPawns>
+      </li>
+    </modExtensions>
   </WorldObjectDef>
   <WorldObjectDef ParentName="OutpostBase">
     <defName>Outpost_Trading</defName>
     <label>trading outpost</label>
     <description>Places a temporary, autonomously-led camp that specializes in selling and bartering with wanderers, caravans, and natives alike in exchange for silver. Once an ample amount is collected, a delivery will be made at the outskirts of a faction's primary colony.</description>
-    <worldObjectClass>VOE.Outpost_Trading</worldObjectClass>
     <expandingIconTexture>WorldObjects/OutpostTrading</expandingIconTexture>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension">
+        <RequiredSkills>
+          <Social>10</Social>
+        </RequiredSkills>
+        <ProvidedFood>MealFine</ProvidedFood>
+        <ResultOptions>
+          <li>
+            <Thing>Silver</Thing>
+            <AmountsPerSkills>
+              <Social>30</Social>
+            </AmountsPerSkills>
+          </li>
+        </ResultOptions>
+      </li>
+    </modExtensions>
   </WorldObjectDef>
 </Defs>
