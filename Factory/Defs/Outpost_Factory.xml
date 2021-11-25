@@ -6,5 +6,21 @@
     <description>todo</description>
     <worldObjectClass>FactoryOutpost.Outpost_Factory</worldObjectClass>
     <expandingIconTexture>WorldObjects/OutpostFactory</expandingIconTexture>
+    <modExtensions>
+      <li Class="KCSG.CustomGenOption">
+        <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>VFEM_Factory1</li>
+          <li>VFEM_Factory2</li>
+          <li>VFEM_Factory3</li>
+          <li>VFEM_Factory4</li>
+          <li>VFEM_Factory5</li>
+          <li>VFEM_Factory6</li>
+          <li>VFEM_Factory7</li>
+          <li>VFEM_Factory8</li>
+        </chooseFromlayouts>
+        <fullClear>true</fullClear>
+      </li>
+    </modExtensions>
   </WorldObjectDef>
 </Defs>

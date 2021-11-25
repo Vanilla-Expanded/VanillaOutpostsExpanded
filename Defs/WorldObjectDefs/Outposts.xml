@@ -38,6 +38,13 @@
           </li>
         </ResultOptions>
       </li>
+      <li Class="KCSG.CustomGenOption">
+        <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>Outpost_Struct_Farming</li>
+        </chooseFromlayouts>
+        <fullClear>true</fullClear>
+      </li>
     </modExtensions>
   </WorldObjectDef>
   <WorldObjectDef ParentName="OutpostBase">
@@ -55,6 +62,13 @@
         <TicksPerProduction>-1</TicksPerProduction>
         <Range>15</Range>
       </li>
+      <li Class="KCSG.CustomGenOption">
+        <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>Outpost_Struct_Artillery</li>
+        </chooseFromlayouts>
+        <fullClear>true</fullClear>
+      </li>
     </modExtensions>
   </WorldObjectDef>
   <WorldObjectDef ParentName="OutpostBase">
@@ -67,6 +81,13 @@
       <li Class="Outposts.OutpostExtension">
          <TicksPerProduction>-1</TicksPerProduction>
          <Range>15</Range>
+      </li>
+      <li Class="KCSG.CustomGenOption">
+        <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>Outpost_Struct_Defensive</li>
+        </chooseFromlayouts>
+        <fullClear>true</fullClear>
       </li>
     </modExtensions>
   </WorldObjectDef>
@@ -93,6 +114,13 @@
           </li>
         </ResultOptions>
       </li>
+      <li Class="KCSG.CustomGenOption">
+        <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>Outpost_Struct_Drilling</li>
+        </chooseFromlayouts>
+        <fullClear>true</fullClear>
+      </li>
     </modExtensions>
   </WorldObjectDef>
   <WorldObjectDef ParentName="OutpostBase">
@@ -106,6 +134,13 @@
         <ProvidedFood>Pemmican</ProvidedFood>
         <TicksPerProduction>-1</TicksPerProduction>
         <TicksToPack>17500</TicksToPack>
+      </li>
+      <li Class="KCSG.CustomGenOption">
+        <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>Outpost_Struct_Encampment</li>
+        </chooseFromlayouts>
+        <fullClear>true</fullClear>
       </li>
     </modExtensions>
   </WorldObjectDef>
@@ -122,6 +157,13 @@
           <li>Animals</li>
           <li>Shooting</li>
         </DisplaySkills>
+      </li>
+      <li Class="KCSG.CustomGenOption">
+        <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>Outpost_Struct_Hunting</li>
+        </chooseFromlayouts>
+        <fullClear>true</fullClear>
       </li>
     </modExtensions>
   </WorldObjectDef>
@@ -144,6 +186,13 @@
             <Thing>WoodLog</Thing>
           </li>
         </ResultOptions>
+      </li>
+      <li Class="KCSG.CustomGenOption">
+        <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>Outpost_Struct_Logging</li>
+        </chooseFromlayouts>
+        <fullClear>true</fullClear>
       </li>
     </modExtensions>
   </WorldObjectDef>
@@ -216,6 +265,13 @@
           </li>
         </ResultOptions>
       </li>
+      <li Class="KCSG.CustomGenOption">
+        <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>Outpost_Struct_Mining</li>
+        </chooseFromlayouts>
+        <fullClear>true</fullClear>
+      </li>
     </modExtensions>
   </WorldObjectDef>
   <WorldObjectDef ParentName="OutpostBase">
@@ -250,6 +306,13 @@
           </li>
         </ResultOptions>
       </li>
+      <li Class="KCSG.CustomGenOption">
+        <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>Outpost_Struct_Production</li>
+        </chooseFromlayouts>
+        <fullClear>true</fullClear>
+      </li>
     </modExtensions>
   </WorldObjectDef>
   <WorldObjectDef ParentName="OutpostBase">
@@ -261,6 +324,13 @@
     <modExtensions>
       <li Class="Outposts.OutpostExtension">
         <ProvidedFood>Pemmican</ProvidedFood>
+      </li>
+      <li Class="KCSG.CustomGenOption">
+        <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>Outpost_Struct_Scavenging</li>
+        </chooseFromlayouts>
+        <fullClear>true</fullClear>
       </li>
     </modExtensions>
   </WorldObjectDef>
@@ -278,6 +348,13 @@
           <Intellectual>30</Intellectual>
         </RequiredSkills>
       </li>
+      <li Class="KCSG.CustomGenOption">
+        <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>Outpost_Struct_Science</li>
+        </chooseFromlayouts>
+        <fullClear>true</fullClear>
+      </li>
     </modExtensions>
   </WorldObjectDef>
   <WorldObjectDef ParentName="OutpostBase">
@@ -294,6 +371,13 @@
           <Intellectual>30</Intellectual>
         </RequiredSkills>
         <MinPawns>5</MinPawns>
+      </li>
+      <li Class="KCSG.CustomGenOption">
+        <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>Outpost_Struct_Town</li>
+        </chooseFromlayouts>
+        <fullClear>true</fullClear>
       </li>
     </modExtensions>
   </WorldObjectDef>
@@ -316,6 +400,13 @@
             </AmountsPerSkills>
           </li>
         </ResultOptions>
+      </li>
+      <li Class="KCSG.CustomGenOption">
+        <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>Outpost_Struct_Trading</li>
+        </chooseFromlayouts>
+        <fullClear>true</fullClear>
       </li>
     </modExtensions>
   </WorldObjectDef>
