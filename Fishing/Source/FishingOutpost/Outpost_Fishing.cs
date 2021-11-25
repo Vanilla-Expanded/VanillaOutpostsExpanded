@@ -22,7 +22,7 @@ namespace FishingOutpost
 
         public override void RecachePawnTraits()
         {
-            animalsSkill = TotalSkil(SkillDefOf.Animals);
+            animalsSkill = TotalSkill(SkillDefOf.Animals);
         }
 
         public override void PostAdd()
@@ -38,7 +38,7 @@ namespace FishingOutpost
         public override string GetInspectString()
         {
             return base.GetInspectString() + "\n" + "Outposts.TotalSkill".Translate(SkillDefOf.Animals.skillLabel, animalsSkill) + " \n" +
-                   "Outposts.WillProduce.1".Translate(animalsSkill * 10, currentFish.label, ticksTillProduction.ToStringTicksToPeriodVerbose());
+                   "Outposts.WillProduce.1".Translate(animalsSkill * 10, currentFish.label, TimeTillProduction);
         }
 
         public static string CanSpawnOnWith(int tile, List<Pawn> pawns)

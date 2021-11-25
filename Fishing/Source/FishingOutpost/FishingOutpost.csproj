@@ -14,8 +14,8 @@
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>none</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>..\..\Assemblies\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
@@ -51,8 +51,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="VCE-Fishing_publicized">
-      <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\publicized_assemblies\VCE-Fishing_publicized.dll</HintPath>
+    <Reference Include="VCE-Fishing">
+      <HintPath>..\Refs\VCE-Fishing.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
@@ -60,5 +60,15 @@
     <Compile Include="Outpost_Fishing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Krafs.Publicizer">
+      <Version>1.0.1</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Publicize Include="VCE-Fishing" />
+  </ItemGroup>
 </Project>
