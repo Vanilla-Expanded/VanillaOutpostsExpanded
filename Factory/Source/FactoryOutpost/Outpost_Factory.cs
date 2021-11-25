@@ -40,7 +40,7 @@ namespace FactoryOutpost
 
         public override string GetInspectString()
         {
-            return base.GetInspectString() + "\n" + "Outposts.WillProduce.1".Translate(chosenCombination.yield * numPawns * 15, ResultDef.label, TimeTillProduction);
+            return base.GetInspectString() + (Packing ? "" : "\n" + "Outposts.WillProduce.1".Translate(chosenCombination.yield * numPawns * 15, ResultDef.label, TimeTillProduction).ToString());
         }
 
         public override void PostAdd()

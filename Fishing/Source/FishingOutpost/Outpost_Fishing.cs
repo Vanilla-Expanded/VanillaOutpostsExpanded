@@ -37,8 +37,8 @@ namespace FishingOutpost
 
         public override string GetInspectString()
         {
-            return base.GetInspectString() + "\n" + "Outposts.TotalSkill".Translate(SkillDefOf.Animals.skillLabel, animalsSkill) + " \n" +
-                   "Outposts.WillProduce.1".Translate(animalsSkill * 10, currentFish.label, TimeTillProduction);
+            return base.GetInspectString() + "\n" + "Outposts.TotalSkill".Translate(SkillDefOf.Animals.skillLabel, animalsSkill) +
+                   (Packing ? "" : " \n" + "Outposts.WillProduce.1".Translate(animalsSkill * 10, currentFish.label, TimeTillProduction).ToString());
         }
 
         public static string CanSpawnOnWith(int tile, List<Pawn> pawns)
