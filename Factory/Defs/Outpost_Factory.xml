@@ -3,7 +3,7 @@
   <WorldObjectDef ParentName="OutpostBase">
     <defName>Outpost_Factory</defName>
     <label>factory outpost</label>
-    <description>todo</description>
+    <description>Places a temporary, autonomously-led factory that specializes in production and fabrication of goods using machines based on mechanoid technology. As with the machines normally, a wide variety of goods can be produced. Once an ample amount is produced, a delivery will be made at the outskirts of a faction's primary colony.</description>
     <worldObjectClass>FactoryOutpost.Outpost_Factory</worldObjectClass>
     <expandingIconTexture>WorldObjects/OutpostFactory</expandingIconTexture>
     <modExtensions>
