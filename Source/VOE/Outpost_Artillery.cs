@@ -26,7 +26,7 @@ namespace VOE
         {
             var shot = (TravellingArtilleryStrike) WorldObjectMaker.MakeWorldObject(DefDatabase<WorldObjectDef>.GetNamed("VOE_TravellingArtilleryStrike"));
             shot.Fire(this, target);
-            cooldownTicksLeft = CooldownTicks;
+            cooldownTicksLeft = Mathf.RoundToInt(CooldownTicks * OutpostsMod.Settings.TimeMultiplier);
         }
 
         public override void ExposeData()
