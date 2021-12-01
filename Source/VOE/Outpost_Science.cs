@@ -11,7 +11,8 @@ namespace VOE
             base.Tick();
             if (Find.ResearchManager.currentProj == null || Packing) return;
             foreach (var pawn in AllPawns)
-                Find.ResearchManager.ResearchPerformed(pawn.skills.GetSkill(SkillDefOf.Intellectual).Level, pawn);
+                if (Find.ResearchManager.currentProj is not null)
+                    Find.ResearchManager.ResearchPerformed(pawn.skills.GetSkill(SkillDefOf.Intellectual).Level, pawn);
         }
     }
 }
