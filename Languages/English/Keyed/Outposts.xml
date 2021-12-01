@@ -22,4 +22,5 @@
     <Outposts.Commands.Comb.Desc>Change what the factory produces</Outposts.Commands.Comb.Desc>
     <Outposts.MustHaveInCaravan>Must have {0} {1} in caravan</Outposts.MustHaveInCaravan>
     <Outposts.MustBeOnCoast>Must be made on the coast</Outposts.MustBeOnCoast>
+    <Outposts.MustBeArmed>All occupants must be armed and ready for combat.</Outposts.MustBeArmed>
 </LanguageData>

@@ -22,11 +22,15 @@ namespace VOE
                     new HarmonyMethod(typeof(Outpost_Defensive), nameof(UpdateRaidTarget)));
         }
 
+        public static string CanSpawnOnWith(int tile, List<Pawn> pawns) => pawns.All(p => !p.WorkTagIsDisabled(WorkTags.Violent) && p.equipment.Primary is not null)
+            ? "Outposts.MustBeArmed".Translate()
+            : null;
+
         public static void UpdateRaidTarget(IncidentParms parms)
         {
             var defense = Find.WorldObjects.AllWorldObjects.OfType<Outpost_Defensive>().InRandomOrder().FirstOrDefault(d => Rand.Chance(0.25f));
             if (defense == null) return;
-            if (!(parms.target is Map targetMap)) return;
+            if (parms.target is not Map targetMap) return;
             if (!TileFinder.TryFindPassableTileWithTraversalDistance(targetMap.Tile, 2, 5, out var tile,
                 t => !Find.WorldObjects.AnyMapParentAt(t))) tile = defense.Tile;
             var map = GetOrGenerateMapUtility.GetOrGenerateMap(tile, new IntVec3(75, 75, 75), WorldObjectDefOf.Ambush);

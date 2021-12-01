@@ -68,7 +68,4 @@
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <ItemGroup>
-    <Publicize Include="VCE-Fishing" />
-  </ItemGroup>
 </Project>

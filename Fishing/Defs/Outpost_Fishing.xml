@@ -14,6 +14,9 @@
         </chooseFromlayouts>
         <fullClear>true</fullClear>
       </li>
+      <li Class="Outposts.OutpostExtension_Choose">
+        <MinPawns>4</MinPawns>
+      </li>
     </modExtensions>
   </WorldObjectDef>
 

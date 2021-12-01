@@ -9,20 +9,14 @@ namespace FishingOutpost
 {
     public class Outpost_Fishing : Outpost
     {
-        private int animalsSkill;
         private ThingDef currentFish;
         private List<ThingDef> possibleFish;
 
         public override IEnumerable<Thing> ProducedThings()
         {
-            var items = MakeThings(currentFish, animalsSkill * 10);
+            var items = MakeThings(currentFish, TotalSkill(SkillDefOf.Animals) * 10);
             currentFish = possibleFish.RandomElement();
             return items;
-        }
-
-        public override void RecachePawnTraits()
-        {
-            animalsSkill = TotalSkill(SkillDefOf.Animals);
         }
 
         public override void PostAdd()
@@ -35,17 +29,8 @@ namespace FishingOutpost
             currentFish = possibleFish.RandomElement();
         }
 
-        public override string GetInspectString()
-        {
-            return base.GetInspectString() + "\n" + "Outposts.TotalSkill".Translate(SkillDefOf.Animals.skillLabel, animalsSkill) +
-                   (Packing ? "" : " \n" + "Outposts.WillProduce.1".Translate(animalsSkill * 10, currentFish.label, TimeTillProduction).ToString());
-        }
+        public override string ProductionString() => "Outposts.WillProduce.1".Translate(TotalSkill(SkillDefOf.Animals) * 10, currentFish.label, TimeTillProduction);
 
-        public static string CanSpawnOnWith(int tile, List<Pawn> pawns)
-        {
-            if (Find.World.CoastDirectionAt(tile) == Rot4.Invalid) return "Outposts.MustBeOnCoast".Translate();
-
-            return CheckSkill(pawns, SkillDefOf.Animals, 10);
-        }
+        public static string CanSpawnOnWith(int tile, List<Pawn> pawns) => Find.World.CoastDirectionAt(tile) == Rot4.Invalid ? "Outposts.MustBeOnCoast".Translate() : null;
     }
 }

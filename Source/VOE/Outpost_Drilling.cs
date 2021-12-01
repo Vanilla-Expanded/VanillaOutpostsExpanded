@@ -7,7 +7,6 @@ namespace VOE
 {
     public class Outpost_Drilling : Outpost
     {
-        private int constructionSkill;
         private int workUntilReady;
         protected virtual int WorkNeeded => 7 * 60000;
 
@@ -22,16 +21,12 @@ namespace VOE
         public override void Tick()
         {
             base.Tick();
-            if (workUntilReady > 0 && !Packing) workUntilReady -= constructionSkill;
-        }
-
-        public override void RecachePawnTraits()
-        {
-            constructionSkill = TotalSkill(SkillDefOf.Construction);
+            if (workUntilReady > 0 && !Packing) workUntilReady -= TotalSkill(SkillDefOf.Construction);
         }
 
         public override string ProductionString() => workUntilReady > 0
-            ? "Outposts.Drilling".Translate(((float) workUntilReady / WorkNeeded).ToStringPercent(), (workUntilReady / constructionSkill).ToStringTicksToPeriodVerbose())
+            ? "Outposts.Drilling".Translate(((float) workUntilReady / WorkNeeded).ToStringPercent(),
+                (workUntilReady / TotalSkill(SkillDefOf.Construction)).ToStringTicksToPeriodVerbose())
             : base.ProductionString();
 
         public override void ExposeData()

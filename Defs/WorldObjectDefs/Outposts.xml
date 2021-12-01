@@ -50,7 +50,7 @@
   <WorldObjectDef ParentName="OutpostBase">
     <defName>Outpost_Artillery</defName>
     <label>artillery outpost</label>
-    <description>todo</description>
+    <description>Places a temporary, autonomously-led camp that specializes in providing point defense to nearby settlements via artillery strikes. Each pawn will be tasked with the maintenance and usage of a mortar. After a barrage has been expended one day will be required to prepare a new one.</description>
     <worldObjectClass>VOE.Outpost_Artillery</worldObjectClass>
     <expandingIconTexture>WorldObjects/OutpostArtillery</expandingIconTexture>
     <modExtensions>
@@ -74,13 +74,14 @@
   <WorldObjectDef ParentName="OutpostBase">
     <defName>Outpost_Defensive</defName>
     <label>defensive outpost</label>
-    <description>todo</description>
+    <description>Places a temporary, autonomously-led camp that specializes in intercepting and ambushing incoming enemy raids on the main colony. Winning a small skirmish at an outpost can significantly diminish the size of an enemy raid on the main colony. Furthermore, defensive outposts can be tasked to send drop pods to the main colony for short-notice defense.</description>
     <worldObjectClass>VOE.Outpost_Defensive</worldObjectClass>
     <expandingIconTexture>WorldObjects/OutpostDefensive</expandingIconTexture>
     <modExtensions>
       <li Class="Outposts.OutpostExtension">
          <TicksPerProduction>-1</TicksPerProduction>
          <Range>15</Range>
+         <MinPawns>3</MinPawns>
       </li>
       <li Class="KCSG.CustomGenOption">
         <useStructureLayout>True</useStructureLayout>
@@ -94,7 +95,7 @@
   <WorldObjectDef ParentName="OutpostBase">
     <defName>Outpost_Drilling</defName>
     <label>drilling outpost</label>
-    <description>todo</description>
+    <description>Places a temporary, autonomously-led camp that specializes in locating and tapping underground chemfuel reservoirs. Once an ample amount is collected, a delivery will be made at the outskirts of a faction's primary colony.</description>
     <worldObjectClass>VOE.Outpost_Drilling</worldObjectClass>
     <expandingIconTexture>WorldObjects/OutpostDrilling</expandingIconTexture>
     <modExtensions>
@@ -126,7 +127,7 @@
   <WorldObjectDef ParentName="OutpostBase">
     <defName>Outpost_Encampment</defName>
     <label>encampment</label>
-    <description>todo</description>
+    <description>Places a temporary, autonomously-led camp that serves as a resting point for caravans. While camping all pawns will regain food and rest, and allow time for injuries to heal.</description>
     <worldObjectClass>VOE.Outpost_Encampment</worldObjectClass>
     <expandingIconTexture>WorldObjects/OutpostEncampment</expandingIconTexture>
     <modExtensions>

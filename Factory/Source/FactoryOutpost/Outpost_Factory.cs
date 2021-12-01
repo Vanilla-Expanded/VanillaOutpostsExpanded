@@ -2,7 +2,6 @@
 using System.Linq;
 using ItemProcessor;
 using Outposts;
-using RimWorld;
 using RimWorld.Planet;
 using Verse;
 
@@ -15,7 +14,6 @@ namespace FactoryOutpost
 
         private CombinationDef chosenCombination;
         private ThingDef chosenFactory;
-        private int numPawns;
 
         static Outpost_Factory()
         {
@@ -28,26 +26,22 @@ namespace FactoryOutpost
 
         public IEnumerable<CombinationDef> AllCombinations => DefDatabase<CombinationDef>.AllDefs.Where(comb => comb.building == chosenFactory.defName);
 
-        public override IEnumerable<Thing> ProducedThings()
-        {
-            return MakeThings(ResultDef, chosenCombination.yield * numPawns * 15);
-        }
+        public override string ProductionString() => "Outposts.WillProduce.1".Translate(chosenCombination.yield * PawnCount * 15, ResultDef.label, TimeTillProduction);
 
-        public override void RecachePawnTraits()
-        {
-            numPawns = AllPawns.Count();
-        }
-
-        public override string GetInspectString()
-        {
-            return base.GetInspectString() + (Packing ? "" : "\n" + "Outposts.WillProduce.1".Translate(chosenCombination.yield * numPawns * 15, ResultDef.label, TimeTillProduction).ToString());
-        }
+        public override IEnumerable<Thing> ProducedThings() => MakeThings(ResultDef, chosenCombination.yield * PawnCount * 15);
 
         public override void PostAdd()
         {
             base.PostAdd();
             chosenFactory = AllFactories.First();
             chosenCombination = AllCombinations.First();
+        }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Defs.Look(ref chosenCombination, "chosenCombinations");
+            Scribe_Defs.Look(ref chosenFactory, "chosenFactory");
         }
 
         public override IEnumerable<Gizmo> GetGizmos()
@@ -69,7 +63,7 @@ namespace FactoryOutpost
                 new Command_Action
                 {
                     action = () => Find.WindowStack.Add(new FloatMenu(AllCombinations.Select(comb =>
-                        new FloatMenuOption($"{ThingDef.Named(comb.result).label} x{comb.yield * numPawns * 15}", () => chosenCombination = comb)).ToList())),
+                        new FloatMenuOption($"{ThingDef.Named(comb.result).label} x{comb.yield * PawnCount * 15}", () => chosenCombination = comb)).ToList())),
                     defaultLabel = "Outposts.Commands.Comb.Label".Translate(),
                     defaultDesc = "Outposts.Commands.Comb.Desc".Translate(),
                     icon = ResultDef.uiIcon
@@ -79,13 +73,9 @@ namespace FactoryOutpost
 
         public static string CanSpawnOnWith(int tile, List<Pawn> pawns)
         {
-            var caravan = Find.WorldObjects.Caravans.First(c => c.Tile == tile);
-            if (!CaravanInventoryUtility.HasThings(caravan, ThingDef.Named("VFE_ComponentMechanoid"), 20))
-                return "Outposts.MustHaveInCaravan".Translate(20,
-                    ThingDef.Named("VFE_ComponentMechanoid").label);
-            if (pawns.Count < 4) return "Outposts.NotEnoughPawns".Translate(4);
-
-            return null;
+            return !CaravanInventoryUtility.HasThings(Find.WorldObjects.Caravans.First(c => c.Tile == tile), ThingDef.Named("VFE_ComponentMechanoid"), 20)
+                ? "Outposts.MustHaveInCaravan".Translate(20, ThingDef.Named("VFE_ComponentMechanoid").label)
+                : null;
         }
     }
 }

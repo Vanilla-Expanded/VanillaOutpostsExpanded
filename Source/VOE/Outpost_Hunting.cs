@@ -18,6 +18,7 @@ namespace VOE
 
         public override void RecachePawnTraits()
         {
+            base.RecachePawnTraits();
             animalsSkill = TotalSkill(SkillDefOf.Animals);
             shootingSkill = TotalSkill(SkillDefOf.Shooting);
             var leathers = animalsSkill >= 75

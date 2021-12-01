@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-<WorldObjectDef ParentName="OutpostBase">
+  <WorldObjectDef ParentName="OutpostBase">
     <defName>Outpost_Factory</defName>
     <label>factory outpost</label>
     <description>todo</description>
@@ -20,6 +20,9 @@
           <li>VFEM_Factory8</li>
         </chooseFromlayouts>
         <fullClear>true</fullClear>
+      </li>
+      <li Class="Outposts.OutpostExtension_Choose">
+        <MinPawns>4</MinPawns>
       </li>
     </modExtensions>
   </WorldObjectDef>

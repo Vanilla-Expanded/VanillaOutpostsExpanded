@@ -29,6 +29,12 @@ namespace VOE
             cooldownTicksLeft = CooldownTicks;
         }
 
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Values.Look(ref cooldownTicksLeft, "cooldown");
+        }
+
         public override IEnumerable<Gizmo> GetGizmos()
         {
             return base.GetGizmos().Append(new Command_Action
