@@ -23,4 +23,8 @@
     <Outposts.MustHaveInCaravan>Must have {0} {1} in caravan</Outposts.MustHaveInCaravan>
     <Outposts.MustBeOnCoast>Must be made on the coast</Outposts.MustBeOnCoast>
     <Outposts.MustBeArmed>All occupants must be armed and ready for combat.</Outposts.MustBeArmed>
+    <Outposts.Defensive.Won.Label>Raid Ambush Won</Outposts.Defensive.Won.Label>
+    <Outposts.Defensive.Won.Desc>Your soldiers have successfully defeated the incoming raid before it could reach your settlement.</Outposts.Defensive.Won.Desc>
+    <Outposts.Defensive.Lost.Label>Raid Ambush Lost</Outposts.Defensive.Lost.Label>
+    <Outposts.Defensive.Lost.Desc>Your soldiers have been defeated whilst ambushing a raid targetting your settlement. Luckily, the raiders have been discouraged by your audacity and have decided to return home without continuing on to your settlement. Your soldiers' sacrifice is not in vain.</Outposts.Defensive.Lost.Desc>
 </LanguageData>
