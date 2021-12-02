@@ -11,4 +11,20 @@
         <expandMore>false</expandMore>
         <allowCaravanIncidentsWhichGenerateMap>false</allowCaravanIncidentsWhichGenerateMap>
     </WorldObjectDef>
+    <WorldObjectDef>
+        <defName>VOE_AmbushedRaid</defName>
+        <label>ambush</label>
+        <description>An ongoing ambush battle.</description>
+        <worldObjectClass>VOE.AmbushedRaid</worldObjectClass>
+        <texture>World/WorldObjects/Ambush</texture>
+        <expandingIcon>true</expandingIcon>
+        <expandingIconTexture>World/WorldObjects/Expanding/Ambush</expandingIconTexture>
+        <expandingIconPriority>80</expandingIconPriority>
+        <expandMore>true</expandMore>
+        <blockExitGridUntilBattleIsWon>false</blockExitGridUntilBattleIsWon>
+        <isTempIncidentMapOwner>true</isTempIncidentMapOwner>
+        <IncidentTargetTags>
+            <li>Map_TempIncident</li>
+        </IncidentTargetTags>
+    </WorldObjectDef>
 </Defs>
