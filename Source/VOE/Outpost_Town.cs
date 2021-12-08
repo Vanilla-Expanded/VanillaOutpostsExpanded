@@ -29,5 +29,9 @@ namespace VOE
         public static string CanSpawnOnWith(int tile, List<Pawn> pawns) => Find.WorldObjects.Settlements.Count(s => Find.WorldGrid.ApproxDistanceInTiles(s.Tile, tile) < 10) < 3
             ? "Outposts.NearbySettlements".Translate(3, 10)
             : null;
+
+        public static string RequirementsString(int tile, List<Pawn> pawns) =>
+            Requirement("Outposts.NearbySettlements".Translate(3, 10),
+                Find.WorldObjects.Settlements.Count(s => Find.WorldGrid.ApproxDistanceInTiles(s.Tile, tile) < 10) >= 3);
     }
 }

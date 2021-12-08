@@ -1,35 +1,76 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Outposts;
 using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace VOE
 {
-    public class Outpost_Hunting : Outpost
+    public class Outpost_Hunting : Outpost_ChooseResult
     {
-        private int animalsSkill;
-        private ThingDef leather;
-        private ThingDef meat;
-        private int shootingSkill;
-
-        public override IEnumerable<Thing> ProducedThings() => MakeThings(meat, shootingSkill * 10).Concat(MakeThings(leather, shootingSkill * 5));
-
-        public override void RecachePawnTraits()
+        public override List<ResultOption> ResultOptions
         {
-            base.RecachePawnTraits();
-            animalsSkill = TotalSkill(SkillDefOf.Animals);
-            shootingSkill = TotalSkill(SkillDefOf.Shooting);
-            var leathers = animalsSkill >= 75 || Find.WorldGrid[Tile]?.biome?.AllWildAnimals is null
-                ? DefDatabase<ThingDef>.AllDefs.Where(d => d.IsLeather).ToList()
-                : Find.WorldGrid[Tile].biome.AllWildAnimals.Select(pkd => pkd.RaceProps.leatherDef).ToList();
-            // foreach (var thingDef in leathers) Log.Message($"{thingDef.label}: ${thingDef.BaseMarketValue}");
-            leather = leathers.MinBy(td => Math.Abs(animalsSkill - td.BaseMarketValue * 20));
-            meat = DefDatabase<PawnKindDef>.AllDefs.FirstOrDefault(pkd => pkd.RaceProps.leatherDef == leather)?.race?.race?.meatDef ?? ThingDefOf.Cow.race.meatDef;
+            get
+            {
+                var opt = base.ResultOptions[0];
+                if (opt?.Thing is null) return new List<ResultOption>();
+                return new List<ResultOption>
+                {
+                    new()
+                    {
+                        Thing = opt.Thing.race.leatherDef ?? ThingDefOf.Leather_Plain,
+
+                        AmountsPerSkills = new List<AmountBySkill>
+                        {
+                            new()
+                            {
+                                Skill = SkillDefOf.Shooting,
+                                Count = (int) (opt.Thing.GetStatValueAbstract(StatDefOf.LeatherAmount) * opt.AmountsPerSkills[0].Count / 2f)
+                            },
+                            new()
+                            {
+                                Skill = SkillDefOf.Animals,
+                                Count = (int) (opt.Thing.GetStatValueAbstract(StatDefOf.LeatherAmount) * opt.AmountsPerSkills[0].Count / 2f)
+                            }
+                        }
+                    },
+                    new()
+                    {
+                        Thing = opt.Thing.race.meatDef ?? ThingDefOf.Cow.race.meatDef ?? ThingDefOf.Meat_Human,
+                        AmountsPerSkills = new List<AmountBySkill>
+                        {
+                            new()
+                            {
+                                Skill = SkillDefOf.Shooting,
+                                Count = (int) (opt.Thing.GetStatValueAbstract(StatDefOf.MeatAmount) * opt.AmountsPerSkills[0].Count / 2f)
+                            },
+                            new()
+                            {
+                                Skill = SkillDefOf.Animals,
+                                Count = (int) (opt.Thing.GetStatValueAbstract(StatDefOf.MeatAmount) * opt.AmountsPerSkills[0].Count / 2f)
+                            }
+                        }
+                    }
+                };
+            }
         }
 
-        public override string ProductionString() => "Outposts.WillProduce.2".Translate(shootingSkill * 10, meat.label, 100,
-            leather.label, TimeTillProduction);
+        public override IEnumerable<ResultOption> GetExtraOptions()
+        {
+            var biome = Find.WorldGrid[Tile].biome;
+            return biome.AllWildAnimals.OrderByDescending(biome.CommonalityOfAnimal).Take(5).Select(pkd => new ResultOption
+            {
+                Thing = pkd.race,
+                AmountsPerSkills = new List<AmountBySkill>
+                {
+                    new()
+                    {
+                        Skill = SkillDefOf.Shooting,
+                        Count = Mathf.CeilToInt(biome.CommonalityOfAnimal(pkd) * 2f)
+                    }
+                }
+            });
+        }
     }
 }

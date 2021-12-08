@@ -27,9 +27,14 @@ namespace VOE
                 ? "Outposts.MustBeArmed".Translate()
                 : null;
 
+        public static string RequirementsString(int tile, List<Pawn> pawns) =>
+            Requirement("Outposts.MustBeArmed".Translate(),
+                pawns.Where(p => p.RaceProps.Humanlike).All(p => !p.WorkTagIsDisabled(WorkTags.Violent) && p.equipment.Primary is not null));
+
         public static void UpdateRaidTarget(IncidentParms parms)
         {
-            var defense = Find.WorldObjects.AllWorldObjects.OfType<Outpost_Defensive>().InRandomOrder().FirstOrDefault( /* d => Rand.Chance(0.25f) */);
+            var defense = Find.WorldObjects.AllWorldObjects.OfType<Outpost_Defensive>().Where(outpost => outpost.PawnCount > 0).InRandomOrder()
+                .FirstOrDefault(_ => Rand.Chance(0.25f));
             if (defense == null) return;
             if (parms.target is not Map targetMap) return;
             if (!TileFinder.TryFindPassableTileWithTraversalDistance(targetMap.Tile, 2, 5, out var tile,
@@ -63,7 +68,7 @@ namespace VOE
                             Find.Targeter.BeginTargeting(TargetingParameters.ForDropPodsDestination(), localTarget =>
                             {
                                 var pods = (TravelingTransportPods) WorldObjectMaker.MakeWorldObject(WorldObjectDefOf.TravelingTransportPods);
-                                foreach (var pawn in AllPawns)
+                                foreach (var pawn in AllPawns.InRandomOrder().Skip(1))
                                 {
                                     var info = new ActiveDropPodInfo
                                     {

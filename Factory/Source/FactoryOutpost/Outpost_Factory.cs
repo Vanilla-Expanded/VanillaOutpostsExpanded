@@ -19,12 +19,13 @@ namespace FactoryOutpost
         {
             var designation = DefDatabase<DesignationCategoryDef>.GetNamed("VFE_Factory");
             AllFactories = DefDatabase<ThingDef>.AllDefs.Where(td => td.designationCategory == designation && typeof(Building_ItemProcessor).IsAssignableFrom(td.thingClass))
-                .ToList();
+                .Where(fact => DefDatabase<CombinationDef>.AllDefs.Any(comb => comb.building == fact.defName)).ToList();
         }
 
         protected ThingDef ResultDef => ThingDef.Named(chosenCombination.result);
 
-        public IEnumerable<CombinationDef> AllCombinations => DefDatabase<CombinationDef>.AllDefs.Where(comb => comb.building == chosenFactory.defName);
+        public IEnumerable<CombinationDef> AllCombinations => DefDatabase<CombinationDef>.AllDefs.Where(comb => comb.building == chosenFactory.defName)
+            .GroupBy(comb => ThingDef.Named(comb.result)).Select(combs => combs.MaxBy(comb => comb.yield));
 
         public override string ProductionString() => "Outposts.WillProduce.1".Translate(chosenCombination.yield * PawnCount * 15, ResultDef.label, TimeTillProduction);
 
@@ -50,12 +51,11 @@ namespace FactoryOutpost
             {
                 new Command_Action
                 {
-                    action = () => Find.WindowStack.Add(new FloatMenu(AllFactories.Where(fact => DefDatabase<CombinationDef>.AllDefs.Any(comb => comb.building == fact.defName))
-                        .Select(fact => new FloatMenuOption(fact.LabelCap, () =>
-                        {
-                            chosenFactory = fact;
-                            chosenCombination = AllCombinations.First();
-                        })).ToList())),
+                    action = () => Find.WindowStack.Add(new FloatMenu(AllFactories.Select(fact => new FloatMenuOption(fact.LabelCap, () =>
+                    {
+                        chosenFactory = fact;
+                        chosenCombination = AllCombinations.First();
+                    })).ToList())),
                     defaultLabel = "Outposts.Commands.Factory.Label".Translate(),
                     defaultDesc = "Outposts.Commands.Factory.Desc".Translate(),
                     icon = chosenFactory.uiIcon
@@ -71,11 +71,14 @@ namespace FactoryOutpost
             });
         }
 
-        public static string CanSpawnOnWith(int tile, List<Pawn> pawns)
-        {
-            return !CaravanInventoryUtility.HasThings(Find.WorldObjects.Caravans.First(c => c.Tile == tile), ThingDef.Named("VFE_ComponentMechanoid"), 20)
-                ? "Outposts.MustHaveInCaravan".Translate(20, ThingDef.Named("VFE_ComponentMechanoid").label)
+        public static string CanSpawnOnWith(int tile, List<Pawn> pawns) =>
+            !CaravanInventoryUtility.HasThings(Find.WorldObjects.Caravans.First(c => c.Tile == tile), ThingDef.Named("VFE_ComponentMechanoid"), 12)
+                ? "Outposts.MustHaveInCaravan".Translate(12, ThingDef.Named("VFE_ComponentMechanoid").label)
                 : null;
-        }
+
+        public static string RequirementsString(int tile, List<Pawn> pawns) => Requirement(
+            "Outposts.MustHaveInCaravan".Translate(12, ThingDef.Named("VFE_ComponentMechanoid").label), CaravanInventoryUtility.HasThings(
+                Find.WorldObjects.Caravans.First(c => c.Tile == tile),
+                ThingDef.Named("VFE_ComponentMechanoid"), 12));
     }
 }

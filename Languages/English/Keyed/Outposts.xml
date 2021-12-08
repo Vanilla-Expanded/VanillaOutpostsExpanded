@@ -21,7 +21,7 @@
     <Outposts.Commands.Comb.Label>Change Result</Outposts.Commands.Comb.Label>
     <Outposts.Commands.Comb.Desc>Change what the factory produces</Outposts.Commands.Comb.Desc>
     <Outposts.MustHaveInCaravan>Must have {0} {1} in caravan</Outposts.MustHaveInCaravan>
-    <Outposts.MustBeOnCoast>Must be made on the coast</Outposts.MustBeOnCoast>
+    <Outposts.MustBeOnCoastOrRiver>Must be made on the coast or a river</Outposts.MustBeOnCoastOrRiver>
     <Outposts.MustBeArmed>All occupants must be armed and ready for combat.</Outposts.MustBeArmed>
     <Outposts.Defensive.Won.Label>Raid Ambush Won</Outposts.Defensive.Won.Label>
     <Outposts.Defensive.Won.Desc>Your soldiers have successfully defeated the incoming raid before it could reach your settlement.</Outposts.Defensive.Won.Desc>

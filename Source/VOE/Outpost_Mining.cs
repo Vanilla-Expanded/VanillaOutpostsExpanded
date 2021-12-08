@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Outposts;
-using RimWorld;
 using RimWorld.Planet;
 using Verse;
 
@@ -15,18 +14,13 @@ namespace VOE
                 .Select(rock => new ResultOption
                 {
                     Thing = rock,
-                    BaseAmount = 750,
-                    MinSkills = new List<AmountBySkill>
-                    {
-                        new()
-                        {
-                            Skill = SkillDefOf.Mining,
-                            Count = 10
-                        }
-                    }
+                    BaseAmount = 750
                 });
         }
 
         public static string CanSpawnOnWith(int tile, List<Pawn> pawns) => Find.WorldGrid[tile].hilliness == Hilliness.Flat ? "Outposts.MustBeMade.Hill".Translate() : null;
+
+        public static string RequirementsString(int tile, List<Pawn> pawns) =>
+            Requirement("Outposts.MustBeMade.Hill".Translate(), Find.WorldGrid[tile].hilliness != Hilliness.Flat);
     }
 }
