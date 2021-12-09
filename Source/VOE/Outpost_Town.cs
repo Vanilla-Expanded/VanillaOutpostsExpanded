@@ -30,7 +30,7 @@ namespace VOE
             foreach (var pawn in newPawns) AddPawn(pawn);
         }
 
-        public override string ProductionString() => "Outposts.WillProduce.Pawns".Translate(TimeTillProduction);
+        public override string ProductionString() => "Outposts.WillProduce.Pawns".Translate(TimeTillProduction).RawText;
 
         public static string CanSpawnOnWith(int tile, List<Pawn> pawns) => Find.WorldObjects.Settlements.Count(s => Find.WorldGrid.ApproxDistanceInTiles(s.Tile, tile) < 10) < 3
             ? "Outposts.NearbySettlements".Translate(3, 10)

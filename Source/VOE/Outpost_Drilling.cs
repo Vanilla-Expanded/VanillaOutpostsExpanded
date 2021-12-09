@@ -16,7 +16,7 @@ namespace VOE
             workUntilReady = WorkNeeded;
         }
 
-        public override IEnumerable<Thing> ProducedThings() => workUntilReady > 0 ? new List<Thing>() : MakeThings(ThingDefOf.Chemfuel, 500);
+        public override IEnumerable<Thing> ProducedThings() => workUntilReady > 0 ? new List<Thing>() : base.ProducedThings();
 
         public override void Tick()
         {
