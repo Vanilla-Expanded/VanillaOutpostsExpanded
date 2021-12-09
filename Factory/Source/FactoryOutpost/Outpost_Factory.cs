@@ -2,7 +2,6 @@
 using System.Linq;
 using ItemProcessor;
 using Outposts;
-using RimWorld.Planet;
 using Verse;
 
 namespace FactoryOutpost
@@ -70,15 +69,5 @@ namespace FactoryOutpost
                 }
             });
         }
-
-        public static string CanSpawnOnWith(int tile, List<Pawn> pawns) =>
-            !CaravanInventoryUtility.HasThings(Find.WorldObjects.Caravans.First(c => c.Tile == tile), ThingDef.Named("VFE_ComponentMechanoid"), 12)
-                ? "Outposts.MustHaveInCaravan".Translate(12, ThingDef.Named("VFE_ComponentMechanoid").label)
-                : null;
-
-        public static string RequirementsString(int tile, List<Pawn> pawns) => Requirement(
-            "Outposts.MustHaveInCaravan".Translate(12, ThingDef.Named("VFE_ComponentMechanoid").label), CaravanInventoryUtility.HasThings(
-                Find.WorldObjects.Caravans.First(c => c.Tile == tile),
-                ThingDef.Named("VFE_ComponentMechanoid"), 12));
     }
 }

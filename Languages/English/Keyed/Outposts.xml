@@ -9,20 +9,21 @@
     <Outposts.Commands.Deploy.Label>Send Reinforcements</Outposts.Commands.Deploy.Label>
     <Outposts.Commands.Deploy.Desc>Deploy the garrison of this outpost in drop pods to assist one of your combat engagements.</Outposts.Commands.Deploy.Desc>
     <Outposts.Commands.Deploy.Disabled>Cannot send: Drop pods are not available to you</Outposts.Commands.Deploy.Disabled>
+    <Outposts.Commands.Deploy.Only1>Cannot send last pawn</Outposts.Commands.Deploy.Only1>
     <Outposts.Drilling>Drilling boreholes. {0} done. Estimated time remaining: {1}</Outposts.Drilling>
     <Outposts.MustBeMade>Must be made in the {0}</Outposts.MustBeMade>
     <Outposts.MustBeMade.Hill>Must be made in mountains or hills</Outposts.MustBeMade.Hill>
     <Outposts.SkillTooLow>Total skill too low, needs {0}</Outposts.SkillTooLow>
     <Outposts.NearbySettlements>Not enough nearby settlements, need {0} within {1} tiles</Outposts.NearbySettlements>
     <Outposts.Letters.Recruit.Label>Pawns Recruited: {0}</Outposts.Letters.Recruit.Label>
-    <Outposts.Letters.Recruit.Desc>The following pawns have been newly recruited in the town of {0}</Outposts.Letters.Recruit.Desc>
+    <Outposts.Letters.Recruit.Desc>The following pawns have been newly recruited in the town of {0}:\n{1}</Outposts.Letters.Recruit.Desc>
     <Outposts.Commands.Factory.Label>Change Factory</Outposts.Commands.Factory.Label>
     <Outposts.Commands.Factory.Desc>Change which factory building this outpost uses to produce items for you</Outposts.Commands.Factory.Desc>
     <Outposts.Commands.Comb.Label>Change Result</Outposts.Commands.Comb.Label>
     <Outposts.Commands.Comb.Desc>Change what the factory produces</Outposts.Commands.Comb.Desc>
-    <Outposts.MustHaveInCaravan>Must have {0} {1} in caravan</Outposts.MustHaveInCaravan>
     <Outposts.MustBeOnCoastOrRiver>Must be made on the coast or a river</Outposts.MustBeOnCoastOrRiver>
     <Outposts.MustBeArmed>All occupants must be armed and ready for combat.</Outposts.MustBeArmed>
+    <Outposts.WillProduce.Pawns>May recruit some new pawns in {0}</Outposts.WillProduce.Pawns>
     <Outposts.Defensive.Won.Label>Raid Ambush Won</Outposts.Defensive.Won.Label>
     <Outposts.Defensive.Won.Desc>Your soldiers have successfully defeated the incoming raid before it could reach your settlement.</Outposts.Defensive.Won.Desc>
     <Outposts.Defensive.Lost.Label>Raid Ambush Lost</Outposts.Defensive.Lost.Label>

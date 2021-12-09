@@ -368,7 +368,6 @@
     <modExtensions>
       <li Class="Outposts.OutpostExtension">
         <ProvidedFood>MealFine</ProvidedFood>
-        <TicksPerProduction>-1</TicksPerProduction>
         <DisplaySkills>
           <li>Social</li>
         </DisplaySkills>
