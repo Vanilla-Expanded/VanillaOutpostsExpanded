@@ -14,8 +14,9 @@
     <label>farming outpost</label>
     <description>Places a temporary, autonomously-led camp that specializes in sowing and harvesting easily-grown vegetation, cannot be placed on deserts. Once an ample amount is collected, a delivery will be made at the outskirts of a faction's primary colony.</description>
     <expandingIconTexture>WorldObjects/OutpostFarming</expandingIconTexture>
+    <worldObjectClass>VOE.Outpost_Farming</worldObjectClass>
     <modExtensions>
-      <li Class="Outposts.OutpostExtension">
+      <li Class="Outposts.OutpostExtension_Choose">
         <DisallowedBiomes>
           <li>Desert</li>
           <li>ExtremeDesert</li>
@@ -25,20 +26,9 @@
           <Plants>10</Plants>
         </RequiredSkills>
         <ProvidedFood>MealFine_Veg</ProvidedFood>
-        <ResultOptions>
-          <li>
-            <AmountsPerSkills>
-              <Plants>15</Plants>
-            </AmountsPerSkills>
-            <Thing>RawPotatoes</Thing>
-          </li>
-          <li>
-            <AmountsPerSkills>
-              <Plants>5</Plants>
-            </AmountsPerSkills>
-            <Thing>RawCorn</Thing>
-          </li>
-        </ResultOptions>
+        <ResultOptions />
+        <ChooseLabel>Choose plant</ChooseLabel>
+        <ChooseDesc>Choose which plant this outpost should plant</ChooseDesc>
       </li>
       <li Class="KCSG.CustomGenOption">
         <useStructureLayout>True</useStructureLayout>
@@ -162,6 +152,7 @@
         </DisplaySkills>
         <ChooseLabel>Hunting {0}</ChooseLabel>
         <ChooseDesc>Choose what animal to hunt at this outpost</ChooseDesc>
+        <Event>VOE_JoinHuntingOutpost</Event>
       </li>
       <li Class="KCSG.CustomGenOption">
         <useStructureLayout>True</useStructureLayout>
@@ -192,6 +183,7 @@
             <Thing>WoodLog</Thing>
           </li>
         </ResultOptions>
+        <Event>VOE_JoinLoggingOutpost</Event>
       </li>
       <li Class="KCSG.CustomGenOption">
         <useStructureLayout>True</useStructureLayout>

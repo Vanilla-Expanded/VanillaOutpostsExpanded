@@ -37,7 +37,7 @@ namespace VOE
             : null;
 
         public static string RequirementsString(int tile, List<Pawn> pawns) =>
-            Requirement("Outposts.NearbySettlements".Translate(3, 10),
+            "Outposts.NearbySettlements".Translate(3, 10).Requirement(
                 Find.WorldObjects.Settlements.Count(s => Find.WorldGrid.ApproxDistanceInTiles(s.Tile, tile) < 10) >= 3);
     }
 }

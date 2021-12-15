@@ -68,6 +68,7 @@
     <Compile Include="Outpost_Defensive.cs" />
     <Compile Include="Outpost_Drilling.cs" />
     <Compile Include="Outpost_Encampment.cs" />
+    <Compile Include="Outpost_Farming.cs" />
     <Compile Include="Outpost_Hunting.cs" />
     <Compile Include="Outpost_Mining.cs" />
     <Compile Include="Outpost_Scavenging.cs" />

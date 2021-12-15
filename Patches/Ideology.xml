@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods><li>Ideology</li></mods>
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/PreceptDef[defName="KillingInnocentAnimals_Abhorrent" or defName="KillingInnocentAnimals_Horrible" or defName="KillingInnocentAnimals_Disapproved"]/comps</xpath>
+                    <value>
+                        <li Class="PreceptComp_UnwillingToDo">
+                            <eventDef>VOE_JoinHuntingOutpost</eventDef>
+                        </li>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/PreceptDef[defName="TreeCutting_Prohibited" or defName="TreeCutting_Horrible" or defName="TreeCutting_Disapproved"]/comps</xpath>
+                    <value>
+                        <li Class="PreceptComp_UnwillingToDo">
+                            <eventDef>VOE_JoinLoggingOutpost</eventDef>
+                        </li>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

@@ -21,6 +21,6 @@ namespace VOE
         public static string CanSpawnOnWith(int tile, List<Pawn> pawns) => Find.WorldGrid[tile].hilliness == Hilliness.Flat ? "Outposts.MustBeMade.Hill".Translate() : null;
 
         public static string RequirementsString(int tile, List<Pawn> pawns) =>
-            Requirement("Outposts.MustBeMade.Hill".Translate(), Find.WorldGrid[tile].hilliness != Hilliness.Flat);
+            "Outposts.MustBeMade.Hill".Translate().Requirement(Find.WorldGrid[tile].hilliness != Hilliness.Flat);
     }
 }

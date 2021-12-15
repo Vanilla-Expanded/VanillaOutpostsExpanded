@@ -24,7 +24,7 @@ namespace VOE
                 : null;
 
         public static string RequirementsString(int tile, List<Pawn> pawns) =>
-            Requirement("Outposts.MustBeArmed".Translate(),
+            "Outposts.MustBeArmed".Translate().Requirement(
                 pawns.Where(p => p.RaceProps.Humanlike).All(p => !p.WorkTagIsDisabled(WorkTags.Violent) && p.equipment.Primary is not null));
 
         public static void UpdateRaidTarget(IncidentParms parms)

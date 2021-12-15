@@ -10,7 +10,6 @@ namespace VOE
     {
         public override int TicksPerProduction => Mathf.Max(base.TicksPerProduction - PawnCount * 600000, 600000);
         public override IEnumerable<Thing> ProducedThings() => ThingSetMakerDefOf.Reward_ItemsStandard.root.Generate();
-
         public override string ProductionString() => "Outposts.WillProduce.0".Translate(TimeTillProduction).RawText;
     }
 }
