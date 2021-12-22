@@ -28,7 +28,7 @@ namespace FactoryOutpost
 
         public override string ProductionString() => "Outposts.WillProduce.1".Translate(chosenCombination.yield * PawnCount * 15, ResultDef.label, TimeTillProduction);
 
-        public override IEnumerable<Thing> ProducedThings() => MakeThings(ResultDef, chosenCombination.yield * PawnCount * 15);
+        public override IEnumerable<Thing> ProducedThings() => Utils.Make(ResultDef, chosenCombination.yield * PawnCount * 15);
 
         public override void PostAdd()
         {

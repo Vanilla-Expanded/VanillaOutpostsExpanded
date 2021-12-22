@@ -23,7 +23,7 @@ namespace FishingOutpost
                         ? (int) (amount - (6f - fishingSkill))
                         : amount + (int) ((fishingSkill - 6f) / 2.0f);
 
-                    items.AddRange(MakeThings(result.thingDef, num));
+                    items.AddRange(Utils.Make(result.thingDef, num));
                 }
 
             return items;
@@ -43,7 +43,6 @@ namespace FishingOutpost
             ? "Outposts.MustBeOnCoastOrRiver".Translate()
             : null;
 
-        public static string RequirementsString(int tile, List<Pawn> pawns) => Requirement("Outposts.MustBeOnCoastOrRiver".Translate(),
-            Find.World.CoastDirectionAt(tile) != Rot4.Invalid || (Find.WorldGrid[tile].Rivers?.Any() ?? false));
+        public static string RequirementsString(int tile, List<Pawn> pawns) => "Outposts.MustBeOnCoastOrRiver".Translate().Requirement( Find.World.CoastDirectionAt(tile) != Rot4.Invalid || (Find.WorldGrid[tile].Rivers?.Any() ?? false));
     }
 }
