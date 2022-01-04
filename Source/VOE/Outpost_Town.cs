@@ -12,7 +12,7 @@ namespace VOE
         public override void Produce()
         {
             var newPawns = new List<Pawn>();
-            foreach (var pawn in AllPawns)
+            foreach (var pawn in CapablePawns)
                 if (Rand.Chance(pawn.skills.GetSkill(SkillDefOf.Social).Level / 100f))
                 {
                     var newPawn = PawnGenerator.GeneratePawn(pawn.kindDef, pawn.Faction);

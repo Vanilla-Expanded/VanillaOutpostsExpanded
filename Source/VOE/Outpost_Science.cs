@@ -10,7 +10,7 @@ namespace VOE
         {
             base.Tick();
             if (Find.ResearchManager.currentProj == null || Packing) return;
-            foreach (var pawn in AllPawns)
+            foreach (var pawn in CapablePawns)
                 if (Find.ResearchManager.currentProj is not null)
                     Find.ResearchManager.ResearchPerformed(pawn.skills.GetSkill(SkillDefOf.Intellectual).Level * (2f / 3f) * OutpostsMod.Settings.ProductionMultiplier, pawn);
         }

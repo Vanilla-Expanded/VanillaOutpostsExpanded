@@ -103,7 +103,7 @@ namespace VOE
 
         public void Fire(Outpost from, GlobalTargetInfo to)
         {
-            pawns = from.AllPawns.ToList();
+            pawns = from.CapablePawns.ToList();
             averageSkill = (int) pawns.Select(p => p.skills.GetSkill(SkillDefOf.Shooting).Level).Concat(pawns.Select(p => p.skills.GetSkill(SkillDefOf.Intellectual).Level))
                 .Average();
             numShots = pawns.Count;

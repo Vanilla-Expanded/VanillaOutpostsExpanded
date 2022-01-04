@@ -13,7 +13,7 @@ namespace VOE
         {
             get
             {
-                var opt = base.ResultOptions[0];
+                var opt = base.ResultOptions.FirstOrDefault();
                 if (opt?.Thing is null) return new List<ResultOption>();
                 return new List<ResultOption>
                 {
