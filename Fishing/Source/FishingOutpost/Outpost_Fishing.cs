@@ -23,15 +23,15 @@ namespace FishingOutpost
                         ? (int) (amount - (6f - fishingSkill))
                         : amount + (int) ((fishingSkill - 6f) / 2.0f);
 
-                    items.AddRange(Utils.Make(result.thingDef, num));
+                    items.AddRange(result.thingDef.Make(num));
                 }
 
             return items;
         }
 
-        public override void PostAdd()
+        public override void RecachePawnTraits()
         {
-            base.PostAdd();
+            base.RecachePawnTraits();
             possibleFish = DefDatabase<FishDef>.AllDefs
                 .Where(fish => fish.allowedBiomes.Any(biome =>
                     DefDatabase<BiomeTempDef>.AllDefs.Any(bt => bt.biomeTempLabel == biome && bt.biomes.Any(b => b == Find.WorldGrid[Tile].biome.defName)))).ToList();
@@ -43,6 +43,7 @@ namespace FishingOutpost
             ? "Outposts.MustBeOnCoastOrRiver".Translate()
             : null;
 
-        public static string RequirementsString(int tile, List<Pawn> pawns) => "Outposts.MustBeOnCoastOrRiver".Translate().Requirement( Find.World.CoastDirectionAt(tile) != Rot4.Invalid || (Find.WorldGrid[tile].Rivers?.Any() ?? false));
+        public static string RequirementsString(int tile, List<Pawn> pawns) => "Outposts.MustBeOnCoastOrRiver".Translate()
+            .Requirement(Find.World.CoastDirectionAt(tile) != Rot4.Invalid || (Find.WorldGrid[tile].Rivers?.Any() ?? false));
     }
 }

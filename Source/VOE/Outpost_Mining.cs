@@ -10,7 +10,7 @@ namespace VOE
     {
         public override IEnumerable<ResultOption> GetExtraOptions()
         {
-            return Find.World.NaturalRockTypesIn(Tile).Select(rock => rock?.building?.mineableThing?.butcherProducts.FirstOrDefault()?.thingDef).Where(x => x is not null)
+            return Find.World.NaturalRockTypesIn(Tile).Select(rock => rock?.building?.mineableThing?.butcherProducts?.FirstOrDefault()?.thingDef).Where(x => x is not null)
                 .Select(rock => new ResultOption
                 {
                     Thing = rock,
