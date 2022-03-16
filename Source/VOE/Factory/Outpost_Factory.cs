@@ -14,6 +14,9 @@ namespace FactoryOutpost
         private CombinationDef chosenCombination;
         private ThingDef chosenFactory;
 
+        [PostToSetings("Outposts.Settings.Production", PostToSetingsAttribute.DrawMode.Percentage, 1f, 0.01f, 5f)]
+        public float ProductionMultiplier = 1f;
+
         static Outpost_Factory()
         {
             var designation = DefDatabase<DesignationCategoryDef>.GetNamed("VFE_Factory");
@@ -28,7 +31,7 @@ namespace FactoryOutpost
 
         public override string ProductionString() => "Outposts.WillProduce.1".Translate(chosenCombination.yield * PawnCount * 15, ResultDef.label, TimeTillProduction);
 
-        public override IEnumerable<Thing> ProducedThings() => Utils.Make(ResultDef, chosenCombination.yield * PawnCount * 15);
+        public override IEnumerable<Thing> ProducedThings() => ResultDef.Make((int) (ProductionMultiplier * chosenCombination.yield * PawnCount * 5));
 
         public override void PostAdd()
         {

@@ -12,9 +12,11 @@ namespace VOE
     public class Outpost_Artillery : Outpost
     {
         private static readonly Texture2D FireTex = ContentFinder<Texture2D>.Get("UI/ArtilleryFireMission");
-        private int cooldownTicksLeft;
 
-        public virtual int CooldownTicks => 60000;
+        [PostToSetings("Outposts.Settings.Cooldown", PostToSetingsAttribute.DrawMode.Time, 60000, GenDate.TicksPerHour, GenDate.TicksPerDay * 7)]
+        public int CooldownTicks = 60000;
+
+        private int cooldownTicksLeft;
 
         public override void Tick()
         {

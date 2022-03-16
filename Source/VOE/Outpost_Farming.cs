@@ -9,6 +9,9 @@ namespace VOE
 {
     public class Outpost_Farming : Outpost_ChooseResult
     {
+        [PostToSetings("Outposts.Settings.Production", PostToSetingsAttribute.DrawMode.Percentage, 1f, 0.01f, 5f)]
+        public float ProductionMultiplier = 1f;
+
         public override IEnumerable<ResultOption> GetExtraOptions()
         {
             return DefDatabase<ThingDef>.AllDefs.Where(d => d.category == ThingCategory.Plant && d.plant?.harvestedThingDef is not null && d.plant.sowTags.Contains("Ground"))
@@ -19,7 +22,7 @@ namespace VOE
                     {
                         new()
                         {
-                            Count = Mathf.FloorToInt(15 / plant.plant.growDays * plant.plant.harvestYield),
+                            Count = Mathf.FloorToInt(ProductionMultiplier * 45 / plant.plant.growDays * plant.plant.harvestYield),
                             Skill = SkillDefOf.Plants
                         }
                     },

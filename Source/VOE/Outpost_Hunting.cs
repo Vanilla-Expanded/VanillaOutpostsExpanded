@@ -9,6 +9,21 @@ namespace VOE
 {
     public class Outpost_Hunting : Outpost_ChooseResult
     {
+        [PostToSetings("Outposts.Settings.Animals", PostToSetingsAttribute.DrawMode.Percentage, 1f, 0.01f, 2f)]
+        public float Animals = 1f;
+
+        [PostToSetings("Outposts.Settings.Leather", PostToSetingsAttribute.DrawMode.Percentage, 0.5f, 0.01f, 2f)]
+        public float Leather = 0.5f;
+
+        [PostToSetings("Outposts.Settings.Meat", PostToSetingsAttribute.DrawMode.Percentage, 0.5f, 0.01f, 2f)]
+        public float Meat = 0.5f;
+
+        [PostToSetings("Outposts.Settings.Production", PostToSetingsAttribute.DrawMode.Percentage, 0.5f, 0.01f, 5f)]
+        public float ProductionMultiplier = 0.5f;
+
+        [PostToSetings("Outposts.Settings.Shooting", PostToSetingsAttribute.DrawMode.Percentage, 0.5f, 0.01f, 2f)]
+        public float Shooting = 1f;
+
         public override List<ResultOption> ResultOptions
         {
             get
@@ -26,12 +41,12 @@ namespace VOE
                             new()
                             {
                                 Skill = SkillDefOf.Shooting,
-                                Count = (int) (opt.Thing.GetStatValueAbstract(StatDefOf.LeatherAmount) * opt.AmountsPerSkills[0].Count / 2f)
+                                Count = (int) (ProductionMultiplier * Shooting * Leather * opt.Thing.GetStatValueAbstract(StatDefOf.LeatherAmount) * opt.AmountsPerSkills[0].Count)
                             },
                             new()
                             {
                                 Skill = SkillDefOf.Animals,
-                                Count = (int) (opt.Thing.GetStatValueAbstract(StatDefOf.LeatherAmount) * opt.AmountsPerSkills[0].Count / 2f)
+                                Count = (int) (ProductionMultiplier * Animals * Leather * opt.Thing.GetStatValueAbstract(StatDefOf.LeatherAmount) * opt.AmountsPerSkills[0].Count)
                             }
                         }
                     },
@@ -43,12 +58,12 @@ namespace VOE
                             new()
                             {
                                 Skill = SkillDefOf.Shooting,
-                                Count = (int) (opt.Thing.GetStatValueAbstract(StatDefOf.MeatAmount) * opt.AmountsPerSkills[0].Count / 2f)
+                                Count = (int) (ProductionMultiplier * Shooting * Meat * opt.Thing.GetStatValueAbstract(StatDefOf.MeatAmount) * opt.AmountsPerSkills[0].Count)
                             },
                             new()
                             {
                                 Skill = SkillDefOf.Animals,
-                                Count = (int) (opt.Thing.GetStatValueAbstract(StatDefOf.MeatAmount) * opt.AmountsPerSkills[0].Count / 2f)
+                                Count = (int) (ProductionMultiplier * Animals * Meat * opt.Thing.GetStatValueAbstract(StatDefOf.MeatAmount) * opt.AmountsPerSkills[0].Count)
                             }
                         }
                     }
@@ -67,7 +82,7 @@ namespace VOE
                     new()
                     {
                         Skill = SkillDefOf.Shooting,
-                        Count = Mathf.CeilToInt(biome.CommonalityOfAnimal(pkd) * 2f)
+                        Count = Mathf.CeilToInt(biome.CommonalityOfAnimal(pkd) / 5f)
                     }
                 }
             });

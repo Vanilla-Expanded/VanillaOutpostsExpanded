@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
 using Outposts;
@@ -6,16 +7,25 @@ using RimWorld;
 using RimWorld.Planet;
 using UnityEngine;
 using Verse;
+using Verse.AI.Group;
 
 namespace VOE
 {
+    [StaticConstructorOnStartup]
     public class Outpost_Defensive : Outpost
     {
+        private static readonly Func<IncidentWorker_RaidEnemy, IncidentParms, bool> generateFaction;
+
+        [PostToSetings("Outposts.Settings.NeedPods", PostToSetingsAttribute.DrawMode.Checkbox, true)]
+        public bool NeedPods = true;
+
         static Outpost_Defensive()
         {
             if (OutpostsMod.Outposts.Any(outpost => typeof(Outpost_Defensive).IsAssignableFrom(outpost.worldObjectClass)))
                 OutpostsMod.Harm.Patch(AccessTools.Method(typeof(IncidentWorker_RaidEnemy), "TryExecuteWorker"),
                     new HarmonyMethod(typeof(Outpost_Defensive), nameof(UpdateRaidTarget)));
+            generateFaction = AccessTools.MethodDelegate<Func<IncidentWorker_RaidEnemy, IncidentParms, bool>>(AccessTools.Method(typeof(IncidentWorker_RaidEnemy),
+                "TryResolveRaidFaction"));
         }
 
         public static string CanSpawnOnWith(int tile, List<Pawn> pawns) =>
@@ -27,28 +37,39 @@ namespace VOE
             "Outposts.MustBeArmed".Translate().Requirement(
                 pawns.Where(p => p.RaceProps.Humanlike).All(p => !p.WorkTagIsDisabled(WorkTags.Violent) && p.equipment.Primary is not null));
 
-        public static void UpdateRaidTarget(IncidentParms parms)
+        public static bool UpdateRaidTarget(IncidentParms parms, IncidentWorker_RaidEnemy __instance)
         {
             var defense = Find.WorldObjects.AllWorldObjects.OfType<Outpost_Defensive>().Where(outpost => outpost.PawnCount > 1).InRandomOrder()
-                .FirstOrDefault(_ => Rand.Chance(0.25f));
-            if (defense == null) return;
-            if (parms.target is not Map targetMap) return;
+                .FirstOrDefault(_ => Rand.Chance(1f));
+            if (defense == null) return true;
+            if (parms.target is not Map targetMap) return true;
             if (!TileFinder.TryFindPassableTileWithTraversalDistance(targetMap.Tile, 2, 5, out var tile,
                 t => !Find.WorldObjects.AnyMapParentAt(t) && Find.WorldGrid.ApproxDistanceInTiles(defense.Tile, t) <= 7f)) tile = defense.Tile;
-            var map = GetOrGenerateMapUtility.GetOrGenerateMap(tile, new IntVec3(75, 1, 75), DefDatabase<WorldObjectDef>.GetNamed("VOE_AmbushedRaid"));
-            if (map.Parent is AmbushedRaid ambushedRaid) ambushedRaid.DefensiveOutpost = defense;
-            var pawns = defense.AllPawns.InRandomOrder().Skip(1).ToList();
-            foreach (var pawn in pawns)
+            LongEventHandler.QueueLongEvent(() =>
             {
-                GenPlace.TryPlaceThing(defense.RemovePawn(pawn), map.Center, map, ThingPlaceMode.Near);
-                pawn.drafter.Drafted = true;
-            }
-
-            Find.LetterStack.ReceiveLetter("Outposts.Letters.Intercept.Label".Translate(),
-                "Outposts.Letters.Intercept.Text".Translate(targetMap.Parent.LabelCap, defense.Name),
-                LetterDefOf.PositiveEvent, new LookTargets(new List<GlobalTargetInfo> {defense, map.Parent}));
-            parms.target = map;
-            parms.points = StorytellerUtility.DefaultThreatPointsNow(map);
+                var map = GetOrGenerateMapUtility.GetOrGenerateMap(tile, new IntVec3(75, 1, 75), DefDatabase<WorldObjectDef>.GetNamed("VOE_AmbushedRaid"));
+                parms.target = map;
+                parms.points = StorytellerUtility.DefaultThreatPointsNow(map);
+                generateFaction(__instance, parms);
+                if (map.Parent is AmbushedRaid ambushedRaid) ambushedRaid.DefensiveOutpost = defense;
+                var pawns = defense.AllPawns.InRandomOrder().Skip(1).ToList();
+                var defaultPawnGroupMakerParms = IncidentParmsUtility.GetDefaultPawnGroupMakerParms(PawnGroupKindDefOf.Combat, parms);
+                defaultPawnGroupMakerParms.generateFightersOnly = true;
+                defaultPawnGroupMakerParms.dontUseSingleUseRocketLaunchers = true;
+                var enemies = PawnGroupMakerUtility.GeneratePawns(defaultPawnGroupMakerParms).ToList();
+                MultipleCaravansCellFinder.FindStartingCellsFor2Groups(map, out var playerSpot, out var enemySpot);
+                foreach (var pawn in pawns) GenSpawn.Spawn(defense.RemovePawn(pawn), CellFinder.RandomSpawnCellForPawnNear(playerSpot, map), map, Rot4.Random);
+                foreach (var enemy in enemies) GenSpawn.Spawn(enemy, CellFinder.RandomSpawnCellForPawnNear(enemySpot, map), map, Rot4.Random);
+                var lordJob = new LordJob_AssaultColony(parms.faction, true, false);
+                LordMaker.MakeNewLord(parms.faction, lordJob, map, enemies);
+                var letterLabel = "Outposts.Letters.Intercept.Label".Translate();
+                var letterText = "Outposts.Letters.Intercept.Text".Translate(targetMap.Parent.LabelCap, defense.Name);
+                PawnRelationUtility.Notify_PawnsSeenByPlayer_Letter(enemies, ref letterLabel, ref letterText,
+                    "LetterRelatedPawnsGroupGeneric".Translate(Faction.OfPlayer.def.pawnsPlural), true);
+                Find.LetterStack.ReceiveLetter(letterLabel, letterText, LetterDefOf.PositiveEvent, new LookTargets(new List<GlobalTargetInfo> {defense, map.Parent}));
+                Find.TickManager.Notify_GeneratedPotentiallyHostileMap();
+            }, "GeneratingMapForNewEncounter", false, null, false);
+            return false;
         }
 
         public override IEnumerable<Gizmo> GetGizmos()
@@ -97,7 +118,7 @@ namespace VOE
 
         private bool ReinforcementsDisabled(out string reason)
         {
-            if (!Outposts_DefOf.TransportPod.IsFinished)
+            if (NeedPods && !Outposts_DefOf.TransportPod.IsFinished)
             {
                 reason = "Outposts.Commands.Deploy.Disabled".Translate();
                 return true;
@@ -133,7 +154,6 @@ namespace VOE
                 foreach (var pawn in Map.mapPawns.AllPawns.Where(p => p.RaceProps.Humanlike))
                 {
                     pawn.DeSpawn();
-                    Find.WorldPawns.PassToWorld(pawn, PawnDiscardDecideMode.KeepForever);
                     DefensiveOutpost.AddPawn(pawn);
                 }
 
@@ -143,6 +163,12 @@ namespace VOE
 
             alsoRemoveWorldObject = false;
             return false;
+        }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_References.Look(ref DefensiveOutpost, "defensiveOutpost");
         }
     }
 

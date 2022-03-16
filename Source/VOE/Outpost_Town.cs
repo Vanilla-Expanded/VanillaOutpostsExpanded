@@ -9,11 +9,14 @@ namespace VOE
 {
     public class Outpost_Town : Outpost
     {
+        [PostToSetings("Outposts.Settings.Chance", PostToSetingsAttribute.DrawMode.Percentage, 1f, 0.01f, 1f)]
+        public float Chance = 1f;
+
         public override void Produce()
         {
             var newPawns = new List<Pawn>();
             foreach (var pawn in CapablePawns)
-                if (Rand.Chance(pawn.skills.GetSkill(SkillDefOf.Social).Level / 100f))
+                if (Rand.Chance(pawn.skills.GetSkill(SkillDefOf.Social).Level * Chance / 100f))
                 {
                     var newPawn = PawnGenerator.GeneratePawn(pawn.kindDef, pawn.Faction);
                     newPawn.SetFaction(pawn.Faction, pawn);

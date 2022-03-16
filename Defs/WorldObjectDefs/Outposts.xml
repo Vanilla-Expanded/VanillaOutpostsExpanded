@@ -7,6 +7,12 @@
     <expandMore>false</expandMore>
     <worldObjectClass>Outposts.Outpost</worldObjectClass>
     <texture>World/WorldObjects/Sites/Outpost</texture>
+    <inspectorTabs>
+      <li>Outposts.WITab_Outpost_Items</li>
+      <li>Outposts.WITab_Outpost_Gear</li>
+      <li>Outposts.WITab_Outpost_Health</li>
+      <li>Outposts.WITab_Outpost_Needs</li>
+    </inspectorTabs>
   </WorldObjectDef>
 
   <WorldObjectDef ParentName="OutpostBase">
@@ -71,9 +77,9 @@
     <expandingIconTexture>WorldObjects/OutpostDefensive</expandingIconTexture>
     <modExtensions>
       <li Class="Outposts.OutpostExtension">
-         <TicksPerProduction>-1</TicksPerProduction>
-         <Range>15</Range>
-         <MinPawns>3</MinPawns>
+        <TicksPerProduction>-1</TicksPerProduction>
+        <Range>15</Range>
+        <MinPawns>3</MinPawns>
       </li>
       <li Class="KCSG.CustomGenOption">
         <useStructureLayout>True</useStructureLayout>

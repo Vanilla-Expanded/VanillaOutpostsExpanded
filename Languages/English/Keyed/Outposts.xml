@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+    <Outposts.Settings.ResearchRate>Research Rate</Outposts.Settings.ResearchRate>
+    <Outposts.Settings.WorkToDrill>Time To Drill (Needs to happen before production starts)</Outposts.Settings.WorkToDrill>
+    <Outposts.Settings.Cooldown>Cooldown</Outposts.Settings.Cooldown>
+    <Outposts.Settings.Shooting>Shooting Importance</Outposts.Settings.Shooting>
+    <Outposts.Settings.Animals>Animals Importance</Outposts.Settings.Animals>
+    <Outposts.Settings.NeedPods>Need Transport Pods Tech to Deploy Reinforcements?</Outposts.Settings.NeedPods>
+    <Outposts.Settings.Leather>Leather Multiplier</Outposts.Settings.Leather>
+    <Outposts.Settings.Meat>Meat Multiplier</Outposts.Settings.Meat>
+    <Outposts.Settings.Chance>Recruit chance Multiplier</Outposts.Settings.Chance>
     <Outposts.Commands.Fire.Label>Artillery Strike</Outposts.Commands.Fire.Label>
     <Outposts.Commands.Fire.Desc>Begin targeting for an artillery strike</Outposts.Commands.Fire.Desc>
     <Outposts.Commands.Disabled.Cooldown>Still on cooldown</Outposts.Commands.Disabled.Cooldown>

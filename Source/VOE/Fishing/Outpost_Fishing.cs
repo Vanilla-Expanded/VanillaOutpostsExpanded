@@ -10,6 +10,9 @@ namespace FishingOutpost
     {
         private List<FishDef> possibleFish;
 
+        [PostToSetings("Outposts.Settings.Production", PostToSetingsAttribute.DrawMode.Percentage, 1f, 0.01f, 5f)]
+        public float ProductionMultiplier = 1f;
+
         public override IEnumerable<Thing> ProducedThings()
         {
             var items = new List<Thing>();
@@ -23,7 +26,7 @@ namespace FishingOutpost
                         ? (int) (amount - (6f - fishingSkill))
                         : amount + (int) ((fishingSkill - 6f) / 2.0f);
 
-                    items.AddRange(result.thingDef.Make(num));
+                    items.AddRange(result.thingDef.Make((int) (ProductionMultiplier * num)));
                 }
 
             return items;
