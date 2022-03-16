@@ -74,7 +74,7 @@ namespace VOE
         public override IEnumerable<ResultOption> GetExtraOptions()
         {
             var biome = Find.WorldGrid[Tile].biome;
-            return biome.AllWildAnimals.OrderByDescending(biome.CommonalityOfAnimal).Take(5).Select(pkd => new ResultOption
+            return biome.AllWildAnimals.Where(pkd => pkd.RaceProps.baseBodySize >= 2f).OrderByDescending(biome.CommonalityOfAnimal).Take(5).Select(pkd => new ResultOption
             {
                 Thing = pkd.race,
                 AmountsPerSkills = new List<AmountBySkill>
@@ -82,7 +82,7 @@ namespace VOE
                     new()
                     {
                         Skill = SkillDefOf.Shooting,
-                        Count = Mathf.CeilToInt(biome.CommonalityOfAnimal(pkd) / 5f)
+                        Count = Mathf.CeilToInt(biome.CommonalityOfAnimal(pkd) / 15f)
                     }
                 }
             });

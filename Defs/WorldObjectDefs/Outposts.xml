@@ -27,6 +27,7 @@
           <li>Desert</li>
           <li>ExtremeDesert</li>
         </DisallowedBiomes>
+        <TicksPerProduction>3600000</TicksPerProduction>
         <RequiresGrowing>true</RequiresGrowing>
         <RequiredSkills>
           <Plants>10</Plants>
@@ -180,12 +181,13 @@
           <li>Desert</li>
           <li>ExtremeDesert</li>
         </DisallowedBiomes>
+        <TicksPerProduction>3600000</TicksPerProduction>
         <RequiresGrowing>true</RequiresGrowing>
         <MinPawns>3</MinPawns>
         <ProvidedFood>MealFine_Veg</ProvidedFood>
         <ResultOptions>
           <li>
-            <AmountPerPawn>300</AmountPerPawn>
+            <AmountPerPawn>225</AmountPerPawn>
             <Thing>WoodLog</Thing>
           </li>
         </ResultOptions>
@@ -207,63 +209,21 @@
     <worldObjectClass>VOE.Outpost_Mining</worldObjectClass>
     <expandingIconTexture>WorldObjects/OutpostMining</expandingIconTexture>
     <modExtensions>
-      <li Class="Outposts.OutpostExtension_Choose">
+      <li Class="VOE.OutpostExtension_Mining">
         <RequiredSkills>
           <Mining>10</Mining>
         </RequiredSkills>
         <ChooseLabel>Mining {0}</ChooseLabel>
         <ChooseDesc>Click to change mining target.</ChooseDesc>
-        <ResultOptions>
-          <li>
-            <BaseAmount>750</BaseAmount>
-            <Thing>Steel</Thing>
-            <MinSkills>
-              <Mining>15</Mining>
-            </MinSkills>
-          </li>
-          <li>
-            <BaseAmount>750</BaseAmount>
-            <Thing>Jade</Thing>
-            <MinSkills>
-              <Mining>20</Mining>
-            </MinSkills>
-          </li>
-          <li>
-            <BaseAmount>750</BaseAmount>
-            <Thing>Uranium</Thing>
-            <MinSkills>
-              <Mining>25</Mining>
-            </MinSkills>
-          </li>
-          <li>
-            <BaseAmount>750</BaseAmount>
-            <Thing>Silver</Thing>
-            <MinSkills>
-              <Mining>30</Mining>
-            </MinSkills>
-          </li>
-          <li>
-            <BaseAmount>750</BaseAmount>
-            <Thing>Gold</Thing>
-            <MinSkills>
-              <Mining>35</Mining>
-            </MinSkills>
-          </li>
-          <li>
-            <BaseAmount>750</BaseAmount>
-            <Thing>Plasteel</Thing>
-            <MinSkills>
-              <Mining>40</Mining>
-            </MinSkills>
-          </li>
-          <li>
-            <BaseAmount>750</BaseAmount>
-            <Thing>ComponentIndustrial</Thing>
-            <MinSkills>
-              <Mining>50</Mining>
-            </MinSkills>
-          </li>
-        </ResultOptions>
+        <Resources>
+          <Steel>15</Steel>
+          <Jade>20</Jade>
+          <Uranium>25</Uranium>
+          <Silver>30</Silver>
+          <Gold>35</Gold>
+          <Plasteel>40</Plasteel>
+          <ComponentIndustrial>50</ComponentIndustrial>
+        </Resources>
       </li>
       <li Class="KCSG.CustomGenOption">
         <useStructureLayout>True</useStructureLayout>
