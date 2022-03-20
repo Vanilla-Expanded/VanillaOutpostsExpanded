@@ -16,6 +16,9 @@ namespace VOE
     {
         private static readonly Func<IncidentWorker_RaidEnemy, IncidentParms, bool> generateFaction;
 
+        [PostToSetings("Outposts.Settings.DoIntercept", PostToSetingsAttribute.DrawMode.Checkbox, true)]
+        public bool DoIntercept = true;
+
         [PostToSetings("Outposts.Settings.NeedPods", PostToSetingsAttribute.DrawMode.Checkbox, true)]
         public bool NeedPods = true;
 
@@ -40,7 +43,7 @@ namespace VOE
         public static bool UpdateRaidTarget(IncidentParms parms, IncidentWorker_RaidEnemy __instance)
         {
             var defense = Find.WorldObjects.AllWorldObjects.OfType<Outpost_Defensive>().Where(outpost => outpost.PawnCount > 1).InRandomOrder()
-                .FirstOrDefault(_ => Rand.Chance(1f));
+                .FirstOrDefault(d => d.DoIntercept && Rand.Chance(0.25f));
             if (defense == null) return true;
             if (parms.target is not Map targetMap) return true;
             if (!TileFinder.TryFindPassableTileWithTraversalDistance(targetMap.Tile, 2, 5, out var tile,

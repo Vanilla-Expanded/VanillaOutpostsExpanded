@@ -8,6 +8,7 @@
     <Outposts.Settings.NeedPods>Need Transport Pods Tech to Deploy Reinforcements?</Outposts.Settings.NeedPods>
     <Outposts.Settings.Leather>Leather Multiplier</Outposts.Settings.Leather>
     <Outposts.Settings.Meat>Meat Multiplier</Outposts.Settings.Meat>
+    <Outposts.Settings.DoIntercept>Intercept Incoming Raids?</Outposts.Settings.DoIntercept>
     <Outposts.Settings.Chance>Recruit chance Multiplier</Outposts.Settings.Chance>
     <Outposts.Commands.Fire.Label>Artillery Strike</Outposts.Commands.Fire.Label>
     <Outposts.Commands.Fire.Desc>Begin targeting for an artillery strike</Outposts.Commands.Fire.Desc>
