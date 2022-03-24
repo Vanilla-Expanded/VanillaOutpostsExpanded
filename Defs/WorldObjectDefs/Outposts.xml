@@ -236,7 +236,7 @@
           <li>
             <Thing>ComponentIndustrial</Thing>
             <AmountsPerSkills>
-              <Crafting>10</Crafting>
+              <Crafting>2</Crafting>
             </AmountsPerSkills>
           </li>
           <li>
@@ -245,7 +245,7 @@
               <Crafting>50</Crafting>
             </MinSkills>
             <AmountsPerSkills>
-              <Crafting>2</Crafting>
+              <Crafting>1</Crafting>
             </AmountsPerSkills>
           </li>
         </ResultOptions>
