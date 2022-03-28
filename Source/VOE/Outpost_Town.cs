@@ -2,7 +2,6 @@
 using System.Linq;
 using Outposts;
 using RimWorld;
-using RimWorld.Planet;
 using Verse;
 
 namespace VOE
@@ -20,7 +19,6 @@ namespace VOE
                 {
                     var newPawn = PawnGenerator.GeneratePawn(pawn.kindDef, pawn.Faction);
                     newPawn.SetFaction(pawn.Faction, pawn);
-                    Find.WorldPawns.PassToWorld(newPawn, PawnDiscardDecideMode.KeepForever);
                     newPawns.Add(newPawn);
                 }
 
