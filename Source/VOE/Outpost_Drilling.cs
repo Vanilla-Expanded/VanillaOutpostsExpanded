@@ -29,9 +29,9 @@ namespace VOE
         }
 
         public override string ProductionString() => Ready
-            ? "Outposts.Drilling".Translate(((float) workDone / WorkToDrill).ToStringPercent(),
-                ((WorkToDrill - workDone) / TotalSkill(SkillDefOf.Construction)).ToStringTicksToPeriodVerbose().Colorize(ColoredText.DateTimeColor))
-            : base.ProductionString();
+            ? base.ProductionString()
+            : "Outposts.Drilling".Translate(((float) workDone / WorkToDrill).ToStringPercent(),
+                ((WorkToDrill - workDone) / TotalSkill(SkillDefOf.Construction)).ToStringTicksToPeriodVerbose().Colorize(ColoredText.DateTimeColor));
 
         public override void ExposeData()
         {
