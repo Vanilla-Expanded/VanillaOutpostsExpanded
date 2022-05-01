@@ -27,7 +27,8 @@ namespace VOE
             if (OutpostsMod.Outposts.Any(outpost => typeof(Outpost_Defensive).IsAssignableFrom(outpost.worldObjectClass)))
                 OutpostsMod.Harm.Patch(AccessTools.Method(typeof(IncidentWorker_RaidEnemy), "TryExecuteWorker"),
                     new HarmonyMethod(typeof(Outpost_Defensive), nameof(UpdateRaidTarget)));
-            generateFaction = AccessTools.MethodDelegate<Func<IncidentWorker_RaidEnemy, IncidentParms, bool>>(AccessTools.Method(typeof(IncidentWorker_RaidEnemy),
+            generateFaction = AccessTools.MethodDelegate<Func<IncidentWorker_RaidEnemy, IncidentParms, bool>>(AccessTools.Method(
+                typeof(IncidentWorker_RaidEnemy),
                 "TryResolveRaidFaction"));
         }
 
@@ -69,7 +70,8 @@ namespace VOE
                 var letterText = "Outposts.Letters.Intercept.Text".Translate(targetMap.Parent.LabelCap, defense.Name);
                 PawnRelationUtility.Notify_PawnsSeenByPlayer_Letter(enemies, ref letterLabel, ref letterText,
                     "LetterRelatedPawnsGroupGeneric".Translate(Faction.OfPlayer.def.pawnsPlural), true);
-                Find.LetterStack.ReceiveLetter(letterLabel, letterText, LetterDefOf.PositiveEvent, new LookTargets(new List<GlobalTargetInfo> {defense, map.Parent}));
+                Find.LetterStack.ReceiveLetter(letterLabel, letterText, LetterDefOf.PositiveEvent,
+                    new LookTargets(new List<GlobalTargetInfo> {defense, map.Parent}));
                 Find.TickManager.Notify_GeneratedPotentiallyHostileMap();
             }, "GeneratingMapForNewEncounter", false, null, false);
             return false;
@@ -109,7 +111,8 @@ namespace VOE
 
                         return false;
                     }, false, null, false, null, null,
-                    target => Find.WorldGrid.ApproxDistanceInTiles(target.Tile, Tile) <= Range && target.HasWorldObject && target.WorldObject is MapParent parent &&
+                    target => Find.WorldGrid.ApproxDistanceInTiles(target.Tile, Tile) <= Range && target.HasWorldObject &&
+                              target.WorldObject is MapParent parent &&
                               parent.HasMap && parent.Map.mapPawns.AnyFreeColonistSpawned),
                 defaultLabel = "Outposts.Commands.Deploy.Label".Translate(),
                 defaultDesc = "Outposts.Commands.Deploy.Desc".Translate(),
@@ -146,15 +149,17 @@ namespace VOE
         {
             if (!Map.mapPawns.FreeColonists.Any())
             {
-                Find.LetterStack.ReceiveLetter("Outposts.Defensive.Lost.Label".Translate(), "Outposts.Defensive.Lost.Desc".Translate(), LetterDefOf.NeutralEvent);
+                Find.LetterStack.ReceiveLetter("Outposts.Defensive.Lost.Label".Translate(), "Outposts.Defensive.Lost.Desc".Translate(),
+                    LetterDefOf.NeutralEvent);
                 alsoRemoveWorldObject = true;
                 return true;
             }
 
             if (Map.mapPawns.AllPawns.Where(p => p.RaceProps.Humanlike).All(p => p.Faction is {IsPlayer: true}))
             {
-                Find.LetterStack.ReceiveLetter("Outposts.Defensive.Won.Label".Translate(), "Outposts.Defensive.Won.Desc".Translate(), LetterDefOf.PositiveEvent);
-                foreach (var pawn in Map.mapPawns.AllPawns.Where(p => p.RaceProps.Humanlike))
+                Find.LetterStack.ReceiveLetter("Outposts.Defensive.Won.Label".Translate(), "Outposts.Defensive.Won.Desc".Translate(),
+                    LetterDefOf.PositiveEvent);
+                foreach (var pawn in Map.mapPawns.AllPawns.Where(p => p.RaceProps.Humanlike).ToList())
                 {
                     pawn.DeSpawn();
                     DefensiveOutpost.AddPawn(pawn);
