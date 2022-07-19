@@ -55,9 +55,13 @@ namespace VOE
                 parms.target = map;
                 parms.points = StorytellerUtility.DefaultThreatPointsNow(map);
                 generateFaction(__instance, parms);
-                if (map.Parent is AmbushedRaid ambushedRaid) ambushedRaid.DefensiveOutpost = defense;
-                var pawns = defense.AllPawns.InRandomOrder().Skip(1).ToList();
-                var defaultPawnGroupMakerParms = IncidentParmsUtility.GetDefaultPawnGroupMakerParms(PawnGroupKindDefOf.Combat, parms);
+                if (map.Parent is AmbushedRaid ambushedRaid)
+                {
+                    ambushedRaid.DefensiveOutpost = defense;
+                    ambushedRaid.raidFaction = parms.faction;
+                }
+                var pawns = defense.AllPawns.Where(x=>!x.IsPrisonerOfColony).InRandomOrder().Skip(1).ToList();
+                var defaultPawnGroupMakerParms = IncidentParmsUtility.GetDefaultPawnGroupMakerParms(PawnGroupKindDefOf.Combat, parms, ensureCanGenerateAtLeastOnePawn: true);
                 defaultPawnGroupMakerParms.generateFightersOnly = true;
                 defaultPawnGroupMakerParms.dontUseSingleUseRocketLaunchers = true;
                 var enemies = PawnGroupMakerUtility.GeneratePawns(defaultPawnGroupMakerParms).ToList();
@@ -93,7 +97,8 @@ namespace VOE
                                 pods.SetFaction(Faction);
                                 pods.destinationTile = target.Tile;
                                 pods.arrivalAction = new TransportPodsArrivalAction_LandInSpecificCell(parent, localTarget.Cell, false);
-                                foreach (var pawn in AllPawns.InRandomOrder().Skip(1).ToList())
+                                //Change so it doesnt drop pod random farm animals. Also so it always leaves behind an actual colonist (it left behind just a camel that I'm sure if a raid triggered would explode things)
+                                foreach (var pawn in AllPawns.Where(x => x.RaceProps.trainability != TrainabilityDefOf.None).OrderByDescending(x => x.IsColonist).Skip(1).ToList())
                                 {
                                     var info = new ActiveDropPodInfo
                                     {
@@ -144,6 +149,7 @@ namespace VOE
     public class AmbushedRaid : MapParent
     {
         public Outpost_Defensive DefensiveOutpost;
+        public Faction raidFaction;
 
         public override bool ShouldRemoveMapNow(out bool alsoRemoveWorldObject)
         {
@@ -155,16 +161,17 @@ namespace VOE
                 return true;
             }
 
-            if (Map.mapPawns.AllPawns.Where(p => p.RaceProps.Humanlike).All(p => p.Faction is {IsPlayer: true}))
+            if (Map.mapPawns.AllPawns.Where(p => p.RaceProps.Humanlike || p.Faction == raidFaction).All(p => p.Faction is { IsPlayer: true } || p.HostFaction is { IsPlayer: true}))
             {
                 Find.LetterStack.ReceiveLetter("Outposts.Defensive.Won.Label".Translate(), "Outposts.Defensive.Won.Desc".Translate(),
                     LetterDefOf.PositiveEvent);
-                foreach (var pawn in Map.mapPawns.AllPawns.Where(p => p.RaceProps.Humanlike).ToList())
+                List<Pawn> mapPawns = Map.PlayerPawnsForStoryteller.ToList();
+                foreach (var pawn in mapPawns)
                 {
                     pawn.DeSpawn();
                     DefensiveOutpost.AddPawn(pawn);
                 }
-
+                raidFaction = null;
                 alsoRemoveWorldObject = true;
                 return true;
             }
@@ -177,6 +184,7 @@ namespace VOE
         {
             base.ExposeData();
             Scribe_References.Look(ref DefensiveOutpost, "defensiveOutpost");
+            Scribe_References.Look(ref raidFaction, "raidFaction");
         }
     }
 
