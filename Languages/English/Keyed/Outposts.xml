@@ -9,17 +9,26 @@
     <Outposts.Settings.Leather>Leather Multiplier</Outposts.Settings.Leather>
     <Outposts.Settings.Meat>Meat Multiplier</Outposts.Settings.Meat>
     <Outposts.Settings.DoIntercept>Intercept Incoming Raids?</Outposts.Settings.DoIntercept>
+	<Outposts.Settings.InterceptDifficultyMultiplier>Intercept Difficulty Multiplier</Outposts.Settings.InterceptDifficultyMultiplier>
+	<Outposts.Settings.InterceptDifficultyMultiplierTooltip>This is in on top of your global difficulty modifier and intercept is already harder then regular defense raids. Adjust upwards at your own risk</Outposts.Settings.InterceptDifficultyMultiplierTooltip>
     <Outposts.Settings.Chance>Recruit chance Multiplier</Outposts.Settings.Chance>
+	<Outposts.Settings.NeedFuel>Drop Pods Require Fuel</Outposts.Settings.NeedFuel>
+	<Outposts.Settings.NeedFuelAmount>Amount of Fuel</Outposts.Settings.NeedFuelAmount>
     <Outposts.Commands.Fire.Label>Artillery Strike</Outposts.Commands.Fire.Label>
     <Outposts.Commands.Fire.Desc>Begin targeting for an artillery strike</Outposts.Commands.Fire.Desc>
     <Outposts.Commands.Disabled.Cooldown>Still on cooldown</Outposts.Commands.Disabled.Cooldown>
     <Outposts.Cooldown>On cooldown: {0} left</Outposts.Cooldown>
     <Outposts.Letters.Intercept.Label>Raid Intercepted</Outposts.Letters.Intercept.Label>
-    <Outposts.Letters.Intercept.Text>A raid bound for {0} has been intercepted by the defensive outpost {0}. Hopefully they can survive this brave maneuver.</Outposts.Letters.Intercept.Text>
+    <Outposts.Letters.Intercept.Text>A raid bound for {0} has been intercepted by the defensive outpost {1}. Hopefully they can survive this brave maneuver.</Outposts.Letters.Intercept.Text>
+	<Outposts.Intercept.Title>Outpost Intercept Raid</Outposts.Intercept.Title>
+	<Outposts.Intercept.CanIntercept>Defenders at {0} have detected a raid from {1} heading towards {2}! \n\nThey are in position to ambush part of the raiding force, that if successful should cause the rest to scatter and return. They estimate the force they will fight is composed of: \n{3}</Outposts.Intercept.CanIntercept>
+	<Outposts.Intercept.InterceptRaid>Maneuver and intercept the raiders</Outposts.Intercept.InterceptRaid>
+	<Outposts.Intercept.DontIntercept>Stand down, and return to the outpost</Outposts.Intercept.DontIntercept>
     <Outposts.Commands.Deploy.Label>Send Reinforcements</Outposts.Commands.Deploy.Label>
     <Outposts.Commands.Deploy.Desc>Deploy the garrison of this outpost in drop pods to assist one of your combat engagements.</Outposts.Commands.Deploy.Desc>
     <Outposts.Commands.Deploy.Disabled>Cannot send: Drop pods are not available to you</Outposts.Commands.Deploy.Disabled>
     <Outposts.Commands.Deploy.Only1>Cannot send last pawn</Outposts.Commands.Deploy.Only1>
+	<Outposts.Commands.Deploy.NotEnoughFuel>Cannot send not enough stored fuel</Outposts.Commands.Deploy.NotEnoughFuel>
     <Outposts.Drilling>Drilling boreholes. {0} done. Estimated time remaining: {1}</Outposts.Drilling>
     <Outposts.MustBeMade>Must be made in the {0}</Outposts.MustBeMade>
     <Outposts.MustBeMade.Hill>Must be made in mountains or hills</Outposts.MustBeMade.Hill>
@@ -35,7 +44,7 @@
     <Outposts.MustBeArmed>All occupants must be armed and ready for combat.</Outposts.MustBeArmed>
     <Outposts.WillProduce.Pawns>May recruit some new pawns in {0}</Outposts.WillProduce.Pawns>
     <Outposts.Defensive.Won.Label>Raid Ambush Won</Outposts.Defensive.Won.Label>
-    <Outposts.Defensive.Won.Desc>Your soldiers have successfully defeated the incoming raid before it could reach your settlement.</Outposts.Defensive.Won.Desc>
+    <Outposts.Defensive.Won.Desc>Your soldiers have successfully defeated the incoming raid before it could reach your settlement. {0}</Outposts.Defensive.Won.Desc>
     <Outposts.Defensive.Lost.Label>Raid Ambush Lost</Outposts.Defensive.Lost.Label>
     <Outposts.Defensive.Lost.Desc>Your soldiers have been defeated whilst ambushing a raid targetting your settlement. Luckily, the raiders have been discouraged by your audacity and have decided to return home without continuing on to your settlement. Your soldiers' sacrifice is not in vain.</Outposts.Defensive.Lost.Desc>
 </LanguageData>
