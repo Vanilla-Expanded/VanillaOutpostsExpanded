@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <HistoryEventDef>
+        <defName>VOE_JoinHuntingOutpost</defName>
+        <label>join hunting outpost</label>
+        <description>join a hunting outpost</description>
+    </HistoryEventDef>
+    <HistoryEventDef>
+        <defName>VOE_JoinLoggingOutpost</defName>
+        <label>join logging outpost</label>
+        <description>join a logging outpost</description>
+    </HistoryEventDef>
+</Defs>

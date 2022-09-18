@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Farming</defName>
+    <label>farming outpost</label>
+    <description>Places a temporary, autonomously-led camp that specializes in sowing and harvesting easily-grown vegetation, cannot be placed on deserts. Once an ample amount is collected, a delivery will be made at the outskirts of a faction's primary colony.</description>
+    <expandingIconTexture>WorldObjects/OutpostFarming</expandingIconTexture>
+    <worldObjectClass>VOE.Outpost_Farming</worldObjectClass>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension_Choose">
+        <DisallowedBiomes>
+          <li>Desert</li>
+          <li>ExtremeDesert</li>
+        </DisallowedBiomes>
+        <TicksPerProduction>3600000</TicksPerProduction>
+        <RequiresGrowing>true</RequiresGrowing>
+        <RequiredSkills>
+          <Plants>10</Plants>
+        </RequiredSkills>
+        <ProvidedFood>MealFine_Veg</ProvidedFood>
+        <ResultOptions />
+        <ChooseLabel>Choose plant</ChooseLabel>
+        <ChooseDesc>Choose which plant this outpost should plant</ChooseDesc>
+      </li>
+      <li Class="KCSG.CustomGenOption">
+        <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>Outpost_Struct_Farming</li>
+        </chooseFromlayouts>
+        <fullClear>true</fullClear>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Artillery</defName>
+    <label>artillery outpost</label>
+    <description>Places a temporary, autonomously-led camp that specializes in providing point defense to nearby settlements via artillery strikes. Each pawn will be tasked with the maintenance and usage of a mortar. After a barrage has been expended one day will be required to prepare a new one.</description>
+    <worldObjectClass>VOE.Outpost_Artillery</worldObjectClass>
+    <expandingIconTexture>WorldObjects/OutpostArtillery</expandingIconTexture>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension">
+        <DisplaySkills>
+          <li>Intellectual</li>
+          <li>Shooting</li>
+        </DisplaySkills>
+        <TicksPerProduction>-1</TicksPerProduction>
+        <Range>15</Range>
+      </li>
+      <li Class="KCSG.CustomGenOption">
+        <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>Outpost_Struct_Artillery</li>
+        </chooseFromlayouts>
+        <fullClear>true</fullClear>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Defensive</defName>
+    <label>defensive outpost</label>
+    <description>Places a temporary, autonomously-led camp that specializes in intercepting and ambushing incoming enemy raids on the main colony. Winning a small skirmish at an outpost can significantly diminish the size of an enemy raid on the main colony. Furthermore, defensive outposts can be tasked to send drop pods to the main colony for short-notice defense.</description>
+    <worldObjectClass>VOE.Outpost_Defensive</worldObjectClass>
+    <expandingIconTexture>WorldObjects/OutpostDefensive</expandingIconTexture>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension">
+        <TicksPerProduction>-1</TicksPerProduction>
+        <Range>15</Range>
+        <MinPawns>3</MinPawns>
+      </li>
+      <li Class="KCSG.CustomGenOption">
+        <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>Outpost_Struct_Defensive</li>
+        </chooseFromlayouts>
+        <fullClear>true</fullClear>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Drilling</defName>
+    <label>drilling outpost</label>
+    <description>Places a temporary, autonomously-led camp that specializes in locating and tapping underground chemfuel reservoirs. Once an ample amount is collected, a delivery will be made at the outskirts of a faction's primary colony.</description>
+    <worldObjectClass>VOE.Outpost_Drilling</worldObjectClass>
+    <expandingIconTexture>WorldObjects/OutpostDrilling</expandingIconTexture>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension">
+        <AllowedBiomes>
+          <li>Desert</li>
+          <li>ExtremeDesert</li>
+        </AllowedBiomes>
+        <RequiredSkills>
+          <Construction>20</Construction>
+        </RequiredSkills>
+        <ProvidedFood>MealFine_Veg</ProvidedFood>
+        <ResultOptions>
+          <li>
+            <BaseAmount>500</BaseAmount>
+            <Thing>Chemfuel</Thing>
+          </li>
+        </ResultOptions>
+      </li>
+      <li Class="KCSG.CustomGenOption">
+        <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>Outpost_Struct_Drilling</li>
+        </chooseFromlayouts>
+        <fullClear>true</fullClear>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Encampment</defName>
+    <label>encampment</label>
+    <description>Places a temporary, autonomously-led camp that serves as a resting point for caravans. While camping all pawns will regain food and rest, and allow time for injuries to heal.</description>
+    <worldObjectClass>VOE.Outpost_Encampment</worldObjectClass>
+    <expandingIconTexture>WorldObjects/OutpostEncampment</expandingIconTexture>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension">
+        <ProvidedFood>Pemmican</ProvidedFood>
+        <TicksPerProduction>-1</TicksPerProduction>
+        <TicksToPack>17500</TicksToPack>
+      </li>
+      <li Class="KCSG.CustomGenOption">
+        <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>Outpost_Struct_Encampment</li>
+        </chooseFromlayouts>
+        <fullClear>true</fullClear>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Hunting</defName>
+    <label>hunting outpost</label>
+    <description>Places a temporary, autonomously-led camp that specializes in hunting and butchering wildlife. Once an ample amount is collected, a delivery will be made at the outskirts of a faction's primary colony.</description>
+    <worldObjectClass>VOE.Outpost_Hunting</worldObjectClass>
+    <expandingIconTexture>WorldObjects/OutpostHunting</expandingIconTexture>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension_Choose">
+        <ProvidedFood>MealFine_Meat</ProvidedFood>
+        <DisplaySkills>
+          <li>Animals</li>
+          <li>Shooting</li>
+        </DisplaySkills>
+        <ChooseLabel>Hunting {0}</ChooseLabel>
+        <ChooseDesc>Choose what animal to hunt at this outpost</ChooseDesc>
+        <Event>VOE_JoinHuntingOutpost</Event>
+      </li>
+      <li Class="KCSG.CustomGenOption">
+        <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>Outpost_Struct_Hunting</li>
+        </chooseFromlayouts>
+        <fullClear>true</fullClear>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Logging</defName>
+    <label>logging outpost</label>
+    <description>Places a temporary, autonomously-led camp that specializes in collecting wood from trees in the areas, cannot be placed on deserts. Once an ample amount is collected, a delivery will be made at the outskirts of a faction's primary colony.</description>
+    <expandingIconTexture>WorldObjects/OutpostLogging</expandingIconTexture>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension">
+        <DisallowedBiomes>
+          <li>Desert</li>
+          <li>ExtremeDesert</li>
+        </DisallowedBiomes>
+        <TicksPerProduction>3600000</TicksPerProduction>
+        <RequiresGrowing>true</RequiresGrowing>
+        <MinPawns>3</MinPawns>
+        <ProvidedFood>MealFine_Veg</ProvidedFood>
+        <ResultOptions>
+          <li>
+            <AmountPerPawn>225</AmountPerPawn>
+            <Thing>WoodLog</Thing>
+          </li>
+        </ResultOptions>
+        <Event>VOE_JoinLoggingOutpost</Event>
+      </li>
+      <li Class="KCSG.CustomGenOption">
+        <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>Outpost_Struct_Logging</li>
+        </chooseFromlayouts>
+        <fullClear>true</fullClear>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Mining</defName>
+    <label>mining outpost</label>
+    <description>Places a temporary, autonomously-led camp that specializes in collecting and processing stone or metal, can only be placed on hills or mountains. Once an ample amount is collected, a delivery will be made at the outskirts of a faction's primary colony.</description>
+    <worldObjectClass>VOE.Outpost_Mining</worldObjectClass>
+    <expandingIconTexture>WorldObjects/OutpostMining</expandingIconTexture>
+    <modExtensions>
+      <li Class="VOE.OutpostExtension_Mining">
+        <RequiredSkills>
+          <Mining>10</Mining>
+        </RequiredSkills>
+        <ChooseLabel>Mining {0}</ChooseLabel>
+        <ChooseDesc>Click to change mining target.</ChooseDesc>
+        <Resources>
+          <Steel>15</Steel>
+          <Jade>20</Jade>
+          <Uranium>25</Uranium>
+          <Silver>30</Silver>
+          <Gold>35</Gold>
+          <Plasteel>40</Plasteel>
+          <ComponentIndustrial>50</ComponentIndustrial>
+        </Resources>
+      </li>
+      <li Class="KCSG.CustomGenOption">
+        <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>Outpost_Struct_Mining</li>
+        </chooseFromlayouts>
+        <fullClear>true</fullClear>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Production</defName>
+    <label>production outpost</label>
+    <description>Places a temporary, autonomously-led camp that specializes in manufacturing and fabrication of mechanical and electronic components. Once an ample amount is produced, a delivery will be made at the outskirts of a faction's primary colony.</description>
+    <worldObjectClass>Outposts.Outpost_ChooseResult</worldObjectClass>
+    <expandingIconTexture>WorldObjects/OutpostProduction</expandingIconTexture>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension_Choose">
+        <RequiredSkills>
+          <Crafting>10</Crafting>
+        </RequiredSkills>
+        <ChooseLabel>Choose output</ChooseLabel>
+        <ChooseDesc>Choose between components and advanced components</ChooseDesc>
+        <ResultOptions>
+          <li>
+            <Thing>ComponentIndustrial</Thing>
+            <AmountsPerSkills>
+              <Crafting>2</Crafting>
+            </AmountsPerSkills>
+          </li>
+          <li>
+            <Thing>ComponentSpacer</Thing>
+            <MinSkills>
+              <Crafting>50</Crafting>
+            </MinSkills>
+            <AmountsPerSkills>
+              <Crafting>1</Crafting>
+            </AmountsPerSkills>
+          </li>
+        </ResultOptions>
+      </li>
+      <li Class="KCSG.CustomGenOption">
+        <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>Outpost_Struct_Production</li>
+        </chooseFromlayouts>
+        <fullClear>true</fullClear>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Scavenging</defName>
+    <label>scavenging outpost</label>
+    <description>Places a temporary, autonomously-led camp that specializes in scouting for nearby unmarked settlements and the loot contained within them. Once something notable is collected, a delivery will be made at the outskirts of a faction's primary colony.</description>
+    <worldObjectClass>VOE.Outpost_Scavenging</worldObjectClass>
+    <expandingIconTexture>WorldObjects/OutpostScavenging</expandingIconTexture>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension">
+        <ProvidedFood>Pemmican</ProvidedFood>
+        <TicksPerProduction>3600000</TicksPerProduction>
+      </li>
+      <li Class="KCSG.CustomGenOption">
+        <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>Outpost_Struct_Scavenging</li>
+        </chooseFromlayouts>
+        <fullClear>true</fullClear>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Science</defName>
+    <label>science outpost</label>
+    <description>Places a temporary, autonomously-led camp that specializes in research and analysis. Any information gained will be shared with the faction as a whole.</description>
+    <worldObjectClass>VOE.Outpost_Science</worldObjectClass>
+    <expandingIconTexture>WorldObjects/OutpostScience</expandingIconTexture>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension">
+        <ProvidedFood>MealFine</ProvidedFood>
+        <TicksPerProduction>-1</TicksPerProduction>
+        <RequiredSkills>
+          <Intellectual>30</Intellectual>
+        </RequiredSkills>
+      </li>
+      <li Class="KCSG.CustomGenOption">
+        <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>Outpost_Struct_Science</li>
+        </chooseFromlayouts>
+        <fullClear>true</fullClear>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Town</defName>
+    <label>town</label>
+    <description>Places a temporary, autonomously-led town that is designed to provide hospitality to travelers and traders alike. Should a visitor find their lodging amicable they will be invited to join the town as a resident permanently. A town can only be erected if 3 pre-existing settlements are located within 10 hexes.</description>
+    <worldObjectClass>VOE.Outpost_Town</worldObjectClass>
+    <expandingIconTexture>WorldObjects/OutpostTown</expandingIconTexture>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension">
+        <ProvidedFood>MealFine</ProvidedFood>
+        <DisplaySkills>
+          <li>Social</li>
+        </DisplaySkills>
+        <MinPawns>5</MinPawns>
+      </li>
+      <li Class="KCSG.CustomGenOption">
+        <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>Outpost_Struct_Town</li>
+        </chooseFromlayouts>
+        <fullClear>true</fullClear>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Trading</defName>
+    <label>trading outpost</label>
+    <description>Places a temporary, autonomously-led camp that specializes in selling and bartering with wanderers, caravans, and natives alike in exchange for silver. Once an ample amount is collected, a delivery will be made at the outskirts of a faction's primary colony.</description>
+    <expandingIconTexture>WorldObjects/OutpostTrading</expandingIconTexture>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension">
+        <RequiredSkills>
+          <Social>10</Social>
+        </RequiredSkills>
+        <ProvidedFood>MealFine</ProvidedFood>
+        <ResultOptions>
+          <li>
+            <Thing>Silver</Thing>
+            <AmountsPerSkills>
+              <Social>30</Social>
+            </AmountsPerSkills>
+          </li>
+        </ResultOptions>
+      </li>
+      <li Class="KCSG.CustomGenOption">
+        <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>Outpost_Struct_Trading</li>
+        </chooseFromlayouts>
+        <fullClear>true</fullClear>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+</Defs>

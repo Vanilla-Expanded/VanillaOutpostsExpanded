@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Factory</defName>
+    <label>factory outpost</label>
+    <description>Places a temporary, autonomously-led factory that specializes in production and fabrication of goods using machines based on mechanoid technology. As with the machines normally, a wide variety of goods can be produced. Once an ample amount is produced, a delivery will be made at the outskirts of a faction's primary colony.</description>
+    <worldObjectClass>FactoryOutpost.Outpost_Factory</worldObjectClass>
+    <expandingIconTexture>WorldObjects/OutpostFactory</expandingIconTexture>
+    <modExtensions>
+      <li Class="KCSG.CustomGenOption">
+        <useStructureLayout>True</useStructureLayout>
+        <chooseFromlayouts>
+          <li>VFEM_Factory1</li>
+          <li>VFEM_Factory2</li>
+          <li>VFEM_Factory3</li>
+          <li>VFEM_Factory4</li>
+          <li>VFEM_Factory5</li>
+          <li>VFEM_Factory6</li>
+          <li>VFEM_Factory7</li>
+          <li>VFEM_Factory8</li>
+        </chooseFromlayouts>
+        <fullClear>true</fullClear>
+      </li>
+      <li Class="Outposts.OutpostExtension_Choose">
+        <MinPawns>4</MinPawns>
+        <CostToMake>
+          <VFE_ComponentMechanoid>12</VFE_ComponentMechanoid>
+        </CostToMake>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+</Defs>
