@@ -23,7 +23,7 @@
         <ChooseDesc>Choose which plant this outpost should plant</ChooseDesc>
       </li>
       <li Class="KCSG.CustomGenOption">
-        <useStructureLayout>True</useStructureLayout>
+        <preventBridgeable>true</preventBridgeable>
         <chooseFromlayouts>
           <li>Outpost_Struct_Farming</li>
         </chooseFromlayouts>
@@ -47,7 +47,7 @@
         <Range>15</Range>
       </li>
       <li Class="KCSG.CustomGenOption">
-        <useStructureLayout>True</useStructureLayout>
+        <preventBridgeable>true</preventBridgeable>
         <chooseFromlayouts>
           <li>Outpost_Struct_Artillery</li>
         </chooseFromlayouts>
@@ -68,7 +68,7 @@
         <MinPawns>3</MinPawns>
       </li>
       <li Class="KCSG.CustomGenOption">
-        <useStructureLayout>True</useStructureLayout>
+        <preventBridgeable>true</preventBridgeable>
         <chooseFromlayouts>
           <li>Outpost_Struct_Defensive</li>
         </chooseFromlayouts>
@@ -100,7 +100,7 @@
         </ResultOptions>
       </li>
       <li Class="KCSG.CustomGenOption">
-        <useStructureLayout>True</useStructureLayout>
+        <preventBridgeable>true</preventBridgeable>
         <chooseFromlayouts>
           <li>Outpost_Struct_Drilling</li>
         </chooseFromlayouts>
@@ -121,7 +121,7 @@
         <TicksToPack>17500</TicksToPack>
       </li>
       <li Class="KCSG.CustomGenOption">
-        <useStructureLayout>True</useStructureLayout>
+        <preventBridgeable>true</preventBridgeable>
         <chooseFromlayouts>
           <li>Outpost_Struct_Encampment</li>
         </chooseFromlayouts>
@@ -147,7 +147,7 @@
         <Event>VOE_JoinHuntingOutpost</Event>
       </li>
       <li Class="KCSG.CustomGenOption">
-        <useStructureLayout>True</useStructureLayout>
+        <preventBridgeable>true</preventBridgeable>
         <chooseFromlayouts>
           <li>Outpost_Struct_Hunting</li>
         </chooseFromlayouts>
@@ -179,7 +179,7 @@
         <Event>VOE_JoinLoggingOutpost</Event>
       </li>
       <li Class="KCSG.CustomGenOption">
-        <useStructureLayout>True</useStructureLayout>
+        <preventBridgeable>true</preventBridgeable>
         <chooseFromlayouts>
           <li>Outpost_Struct_Logging</li>
         </chooseFromlayouts>
@@ -211,7 +211,7 @@
         </Resources>
       </li>
       <li Class="KCSG.CustomGenOption">
-        <useStructureLayout>True</useStructureLayout>
+        <preventBridgeable>true</preventBridgeable>
         <chooseFromlayouts>
           <li>Outpost_Struct_Mining</li>
         </chooseFromlayouts>
@@ -251,7 +251,7 @@
         </ResultOptions>
       </li>
       <li Class="KCSG.CustomGenOption">
-        <useStructureLayout>True</useStructureLayout>
+        <preventBridgeable>true</preventBridgeable>
         <chooseFromlayouts>
           <li>Outpost_Struct_Production</li>
         </chooseFromlayouts>
@@ -271,7 +271,7 @@
         <TicksPerProduction>3600000</TicksPerProduction>
       </li>
       <li Class="KCSG.CustomGenOption">
-        <useStructureLayout>True</useStructureLayout>
+        <preventBridgeable>true</preventBridgeable>
         <chooseFromlayouts>
           <li>Outpost_Struct_Scavenging</li>
         </chooseFromlayouts>
@@ -294,7 +294,7 @@
         </RequiredSkills>
       </li>
       <li Class="KCSG.CustomGenOption">
-        <useStructureLayout>True</useStructureLayout>
+        <preventBridgeable>true</preventBridgeable>
         <chooseFromlayouts>
           <li>Outpost_Struct_Science</li>
         </chooseFromlayouts>
@@ -317,7 +317,7 @@
         <MinPawns>5</MinPawns>
       </li>
       <li Class="KCSG.CustomGenOption">
-        <useStructureLayout>True</useStructureLayout>
+        <preventBridgeable>true</preventBridgeable>
         <chooseFromlayouts>
           <li>Outpost_Struct_Town</li>
         </chooseFromlayouts>
@@ -346,7 +346,7 @@
         </ResultOptions>
       </li>
       <li Class="KCSG.CustomGenOption">
-        <useStructureLayout>True</useStructureLayout>
+        <preventBridgeable>true</preventBridgeable>
         <chooseFromlayouts>
           <li>Outpost_Struct_Trading</li>
         </chooseFromlayouts>
