@@ -20,7 +20,8 @@ namespace FactoryOutpost
         static Outpost_Factory()
         {
             var designation = DefDatabase<DesignationCategoryDef>.GetNamed("VFE_Factory");
-            AllFactories = DefDatabase<ThingDef>.AllDefs.Where(td => td.designationCategory == designation && typeof(Building_ItemProcessor).IsAssignableFrom(td.thingClass))
+            AllFactories = DefDatabase<ThingDef>.AllDefs
+                .Where(td => td.designationCategory == designation && typeof(Building_ItemProcessor).IsAssignableFrom(td.thingClass))
                 .Where(fact => DefDatabase<CombinationDef>.AllDefs.Any(comb => comb.building == fact.defName)).ToList();
         }
 
@@ -29,9 +30,10 @@ namespace FactoryOutpost
         public IEnumerable<CombinationDef> AllCombinations => DefDatabase<CombinationDef>.AllDefs.Where(comb => comb.building == chosenFactory.defName)
             .GroupBy(comb => ThingDef.Named(comb.result)).Select(combs => combs.MaxBy(comb => comb.yield));
 
-        public override string ProductionString() => "Outposts.WillProduce.1".Translate(chosenCombination.yield * PawnCount * 15, ResultDef.label, TimeTillProduction);
+        public override string ProductionString() =>
+            "Outposts.WillProduce.1".Translate(chosenCombination.yield * PawnCount * 15, ResultDef.label, TimeTillProduction);
 
-        public override IEnumerable<Thing> ProducedThings() => ResultDef.Make((int) (ProductionMultiplier * chosenCombination.yield * PawnCount * 5));
+        public override IEnumerable<Thing> ProducedThings() => ResultDef.Make((int)(ProductionMultiplier * chosenCombination.yield * PawnCount * 5));
 
         public override void PostAdd()
         {
