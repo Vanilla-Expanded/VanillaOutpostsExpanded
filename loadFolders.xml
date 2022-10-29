@@ -8,7 +8,7 @@
 	<v1.4>
 		<li>/</li>
 		<li>1.4</li>
-		<!-- <li IfModActive="vanillaexpanded.vcef">1.4/Fishing</li>
-		<li IfModActive="oskarpotocki.vfe.mechanoid">1.4/Factory</li> -->
+		<li IfModActive="vanillaexpanded.vcef">1.4/Fishing</li>
+		<li IfModActive="oskarpotocki.vfe.mechanoid">1.4/Factory</li>
 	</v1.4>
 </loadFolders>
