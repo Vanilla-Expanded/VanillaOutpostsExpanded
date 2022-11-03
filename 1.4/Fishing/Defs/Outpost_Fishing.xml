@@ -8,7 +8,6 @@
     <expandingIconTexture>WorldObjects/OutpostFishing</expandingIconTexture>
     <modExtensions>
       <li Class="KCSG.CustomGenOption">
-        <useStructureLayout>True</useStructureLayout>
         <chooseFromlayouts>
           <li>Outpost_Struct_Fishing</li>
         </chooseFromlayouts>
@@ -23,38 +22,6 @@
   <KCSG.StructureLayoutDef>
     <defName>Outpost_Struct_Fishing</defName>
     <layouts>
-      <li>
-        <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-        <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-        <li>.,.,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-        <li>.,.,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-        <li>.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-        <li>.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-        <li>.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-        <li>.,.,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-        <li>.,.,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-        <li>.,.,.,.,.,WoodPlankFloor,.,.,.,.,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-        <li>.,.,.,.,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,.,.,.,Concrete,Concrete,Concrete,Concrete,Concrete,Concrete,Concrete,Concrete,Concrete,.,.,.,WoodPlankFloor,WoodPlankFloor</li>
-        <li>.,.,.,.,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,WoodPlankFloor,WoodPlankFloor</li>
-        <li>.,.,.,.,.,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,WoodPlankFloor,WoodPlankFloor</li>
-        <li>.,.,.,.,.,.,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,.,.,WoodPlankFloor,WoodPlankFloor,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,WoodPlankFloor,WoodPlankFloor</li>
-        <li>.,.,.,.,.,.,.,.,WoodPlankFloor,.,.,.,.,.,.,.,.,.,Concrete,Concrete,Concrete,Concrete,Concrete,Concrete,Concrete,Concrete,Concrete,.,.,.,WoodPlankFloor,WoodPlankFloor</li>
-        <li>.,.,.,.,.,.,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-        <li>.,.,.,.,.,.,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,Concrete,.,.,.,.,.,.,.,.,.,.,Bridge,Bridge,Bridge,Bridge,Bridge,WaterShallow,WaterShallow,.,.,.,.</li>
-        <li>.,.,.,.,.,.,Concrete,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,Concrete,.,.,.,.,.,.,.,.,Bridge,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,.,.,.</li>
-        <li>.,.,.,.,.,.,Concrete,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,Concrete,.,.,.,.,.,.,.,Bridge,Bridge,WaterShallow,WaterShallow,WaterDeep,WaterDeep,WaterDeep,WaterDeep,WaterShallow,WaterShallow,WaterShallow,.,.,.</li>
-        <li>.,.,.,.,.,.,Concrete,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,Concrete,.,.,.,.,.,.,WaterShallow,WaterShallow,Bridge,WaterDeep,WaterDeep,WaterDeep,WaterDeep,WaterDeep,WaterDeep,WaterShallow,WaterShallow,WaterShallow,WaterShallow,.,.</li>
-        <li>.,.,.,.,.,.,Concrete,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,Concrete,.,.,.,.,.,.,WaterShallow,WaterShallow,Bridge,WaterDeep,WaterDeep,WaterDeep,WaterDeep,WaterDeep,WaterDeep,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,.</li>
-        <li>.,.,.,.,.,.,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,.,.,.,.,.,WaterShallow,WaterShallow,WaterShallow,Bridge,WaterDeep,WaterDeep,WaterDeep,WaterDeep,WaterDeep,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,.</li>
-        <li>.,.,.,.,.,.,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,.,.,.,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterDeep,WaterDeep,WaterDeep,WaterDeep,WaterDeep,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,.,.</li>
-        <li>.,.,.,.,.,.,.,.,.,.,.,.,.,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterDeep,WaterDeep,WaterDeep,WaterDeep,WaterDeep,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,.,.</li>
-        <li>.,.,.,.,.,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterDeep,WaterDeep,WaterDeep,WaterDeep,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,.,.,.,.</li>
-        <li>.,.,.,.,.,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,Bridge,Bridge,Bridge,Bridge,Bridge,WaterShallow,WaterDeep,WaterDeep,WaterDeep,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,.,.,.,.,.</li>
-        <li>.,.,.,.,.,.,.,.,Bridge,Bridge,Bridge,Bridge,Bridge,Bridge,Bridge,Bridge,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,.,.,.,.,.,.,.</li>
-        <li>.,.,.,.,.,.,.,.,.,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,.,.,.,.,.,.,.,.</li>
-        <li>.,.,.,.,.,.,.,.,.,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-        <li>.,.,.,.,.,.,.,.,.,.,.,WaterShallow,WaterShallow,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
-      </li>
       <li>
         <li>.,.,Wall_WoodLog,.,.,.,.,.,Wall_WoodLog,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
         <li>.,.,.,Wall_WoodLog,Wall_WoodLog,Wall_WoodLog,Wall_WoodLog,Wall_WoodLog,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
@@ -120,5 +87,37 @@
       <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
       <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
     </roofGrid>
+    <terrainGrid>
+      <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,WoodPlankFloor,.,.,.,.,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,.,.,.,Concrete,Concrete,Concrete,Concrete,Concrete,Concrete,Concrete,Concrete,Concrete,.,.,.,WoodPlankFloor,WoodPlankFloor</li>
+      <li>.,.,.,.,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,WoodPlankFloor,WoodPlankFloor</li>
+      <li>.,.,.,.,.,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,WoodPlankFloor,WoodPlankFloor</li>
+      <li>.,.,.,.,.,.,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,.,.,WoodPlankFloor,WoodPlankFloor,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,WoodPlankFloor,WoodPlankFloor</li>
+      <li>.,.,.,.,.,.,.,.,WoodPlankFloor,.,.,.,.,.,.,.,.,.,Concrete,Concrete,Concrete,Concrete,Concrete,Concrete,Concrete,Concrete,Concrete,.,.,.,WoodPlankFloor,WoodPlankFloor</li>
+      <li>.,.,.,.,.,.,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,Concrete,.,.,.,.,.,.,.,.,.,.,Bridge,Bridge,Bridge,Bridge,Bridge,WaterShallow,WaterShallow,.,.,.,.</li>
+      <li>.,.,.,.,.,.,Concrete,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,Concrete,.,.,.,.,.,.,.,.,Bridge,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,.,.,.</li>
+      <li>.,.,.,.,.,.,Concrete,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,Concrete,.,.,.,.,.,.,.,Bridge,Bridge,WaterShallow,WaterShallow,WaterDeep,WaterDeep,WaterDeep,WaterDeep,WaterShallow,WaterShallow,WaterShallow,.,.,.</li>
+      <li>.,.,.,.,.,.,Concrete,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,Concrete,.,.,.,.,.,.,WaterShallow,WaterShallow,Bridge,WaterDeep,WaterDeep,WaterDeep,WaterDeep,WaterDeep,WaterDeep,WaterShallow,WaterShallow,WaterShallow,WaterShallow,.,.</li>
+      <li>.,.,.,.,.,.,Concrete,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,Concrete,.,.,.,.,.,.,WaterShallow,WaterShallow,Bridge,WaterDeep,WaterDeep,WaterDeep,WaterDeep,WaterDeep,WaterDeep,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,.</li>
+      <li>.,.,.,.,.,.,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,.,.,.,.,.,WaterShallow,WaterShallow,WaterShallow,Bridge,WaterDeep,WaterDeep,WaterDeep,WaterDeep,WaterDeep,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,.</li>
+      <li>.,.,.,.,.,.,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,.,.,.,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterDeep,WaterDeep,WaterDeep,WaterDeep,WaterDeep,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.,.,.,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterDeep,WaterDeep,WaterDeep,WaterDeep,WaterDeep,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,.,.</li>
+      <li>.,.,.,.,.,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,.,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterDeep,WaterDeep,WaterDeep,WaterDeep,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,.,.,.,.</li>
+      <li>.,.,.,.,.,.,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,WoodPlankFloor,Bridge,Bridge,Bridge,Bridge,Bridge,WaterShallow,WaterDeep,WaterDeep,WaterDeep,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,Bridge,Bridge,Bridge,Bridge,Bridge,Bridge,Bridge,Bridge,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,WaterShallow,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+      <li>.,.,.,.,.,.,.,.,.,.,.,WaterShallow,WaterShallow,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.</li>
+    </terrainGrid>
   </KCSG.StructureLayoutDef>
 </Defs>

@@ -8,7 +8,6 @@
     <expandingIconTexture>WorldObjects/OutpostFactory</expandingIconTexture>
     <modExtensions>
       <li Class="KCSG.CustomGenOption">
-        <useStructureLayout>True</useStructureLayout>
         <chooseFromlayouts>
           <li>VFEM_Factory1</li>
           <li>VFEM_Factory2</li>
