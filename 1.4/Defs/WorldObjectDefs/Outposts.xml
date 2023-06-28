@@ -92,12 +92,14 @@
           <Construction>20</Construction>
         </RequiredSkills>
         <ProvidedFood>MealFine_Veg</ProvidedFood>
-        <ResultOptions>
-          <li>
-            <BaseAmount>500</BaseAmount>
-            <Thing>Chemfuel</Thing>
-          </li>
-        </ResultOptions>
+		  <ResultOptions>
+		    <li>
+			  <Thing>Chemfuel</Thing>
+			  <AmountsPerSkills>
+			    <Mining>50</Mining>
+			  </AmountsPerSkills>
+			</li>
+		  </ResultOptions>
       </li>
       <li Class="KCSG.CustomGenOption">
         <preventBridgeable>true</preventBridgeable>
