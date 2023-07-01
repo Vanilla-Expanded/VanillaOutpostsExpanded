@@ -12,7 +12,8 @@ public class Outpost_Drilling : Outpost
 
     private int workDone;
 
-    private bool Ready => workDone >= WorkToDrill;
+    private bool Ready => workDone >= WorkToDrill * 20;
+
 
     public override void PostMake()
     {
@@ -31,8 +32,8 @@ public class Outpost_Drilling : Outpost
     public override string ProductionString() =>
         Ready
             ? base.ProductionString()
-            : "Outposts.Drilling".Translate(((float)workDone / WorkToDrill).ToStringPercent(),
-                ((WorkToDrill - workDone) / (TotalSkill(SkillDefOf.Construction) / 20)).ToStringTicksToPeriodVerbose().Colorize(ColoredText.DateTimeColor));
+            : "Outposts.Drilling".Translate(((float)workDone / (WorkToDrill * 20)).ToStringPercent(),
+                ((WorkToDrill * 20 - workDone) / TotalSkill(SkillDefOf.Construction)).ToStringTicksToPeriodVerbose().Colorize(ColoredText.DateTimeColor));
 
     public override void ExposeData()
     {
