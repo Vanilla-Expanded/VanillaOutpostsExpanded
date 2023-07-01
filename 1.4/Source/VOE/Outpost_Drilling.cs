@@ -3,40 +3,40 @@ using Outposts;
 using RimWorld;
 using Verse;
 
-namespace VOE
+namespace VOE;
+
+public class Outpost_Drilling : Outpost
 {
-    public class Outpost_Drilling : Outpost
+    [PostToSetings("Outposts.Settings.WorkToDrill", PostToSetingsAttribute.DrawMode.Time, 7 * GenDate.TicksPerDay, GenDate.TicksPerDay, GenDate.TicksPerYear)]
+    public int WorkToDrill = 7 * 60000;
+
+    private int workDone;
+
+    private bool Ready => workDone >= WorkToDrill;
+
+    public override void PostMake()
     {
-        private int workDone;
+        base.PostMake();
+        workDone = 0;
+    }
 
-        [PostToSetings("Outposts.Settings.WorkToDrill", PostToSetingsAttribute.DrawMode.Time, 7 * GenDate.TicksPerDay, GenDate.TicksPerDay, GenDate.TicksPerYear)]
-        public int WorkToDrill = 7 * 60000;
+    public override IEnumerable<Thing> ProducedThings() => Ready ? base.ProducedThings() : new List<Thing>();
 
-        private bool Ready => workDone >= WorkToDrill;
+    public override void Tick()
+    {
+        base.Tick();
+        if (!Ready && !Packing) workDone += TotalSkill(SkillDefOf.Construction);
+    }
 
-        public override void PostMake()
-        {
-            base.PostMake();
-            workDone = 0;
-        }
-
-        public override IEnumerable<Thing> ProducedThings() => Ready ? new List<Thing>() : base.ProducedThings();
-
-        public override void Tick()
-        {
-            base.Tick();
-            if (!Ready && !Packing) workDone += TotalSkill(SkillDefOf.Construction);
-        }
-
-        public override string ProductionString() => Ready
+    public override string ProductionString() =>
+        Ready
             ? base.ProductionString()
-            : "Outposts.Drilling".Translate(((float) workDone / WorkToDrill).ToStringPercent(),
-                ((WorkToDrill - workDone) / TotalSkill(SkillDefOf.Construction)).ToStringTicksToPeriodVerbose().Colorize(ColoredText.DateTimeColor));
+            : "Outposts.Drilling".Translate(((float)workDone / WorkToDrill).ToStringPercent(),
+                ((WorkToDrill - workDone) / (TotalSkill(SkillDefOf.Construction) / 20)).ToStringTicksToPeriodVerbose().Colorize(ColoredText.DateTimeColor));
 
-        public override void ExposeData()
-        {
-            base.ExposeData();
-            Scribe_Values.Look(ref workDone, "workUntilReady");
-        }
+    public override void ExposeData()
+    {
+        base.ExposeData();
+        Scribe_Values.Look(ref workDone, "workUntilReady");
     }
 }
