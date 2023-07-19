@@ -12,7 +12,7 @@ namespace VOE
         [PostToSetings("Outposts.Settings.WorkToDrill", PostToSetingsAttribute.DrawMode.Time, 7 * GenDate.TicksPerDay, GenDate.TicksPerDay, GenDate.TicksPerYear)]
         public int WorkToDrill = 7 * 60000;
 
-        private bool Ready => workDone >= WorkToDrill;
+        private bool Ready => workDone >= WorkToDrill * 20;
 
         public override void PostMake()
         {
@@ -20,7 +20,7 @@ namespace VOE
             workDone = 0;
         }
 
-        public override IEnumerable<Thing> ProducedThings() => Ready ? new List<Thing>() : base.ProducedThings();
+        public override IEnumerable<Thing> ProducedThings() => Ready ? base.ProducedThings() : new List<Thing>();
 
         public override void Tick()
         {
@@ -30,8 +30,8 @@ namespace VOE
 
         public override string ProductionString() => Ready
             ? base.ProductionString()
-            : "Outposts.Drilling".Translate(((float) workDone / WorkToDrill).ToStringPercent(),
-                ((WorkToDrill - workDone) / TotalSkill(SkillDefOf.Construction)).ToStringTicksToPeriodVerbose().Colorize(ColoredText.DateTimeColor));
+            : "Outposts.Drilling".Translate(((float) workDone / (WorkToDrill * 20)).ToStringPercent(),
+                ((WorkToDrill * 20 - workDone) / TotalSkill(SkillDefOf.Construction)).ToStringTicksToPeriodVerbose().Colorize(ColoredText.DateTimeColor));
 
         public override void ExposeData()
         {
