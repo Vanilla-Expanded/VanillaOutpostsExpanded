@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <WorldObjectDef>
+        <defName>VOE_TravellingArtilleryStrike</defName>
+        <label>artillery strike</label>
+        <description>Artillery strike in flight.</description>
+        <worldObjectClass>VOE.TravellingArtilleryStrike</worldObjectClass>
+        <texture>WorldObjects/TravelingArtilleryStrike</texture>
+        <useDynamicDrawer>true</useDynamicDrawer>
+        <expandingIcon>false</expandingIcon>
+        <expandMore>false</expandMore>
+        <allowCaravanIncidentsWhichGenerateMap>false</allowCaravanIncidentsWhichGenerateMap>
+    </WorldObjectDef>
+    <WorldObjectDef>
+        <defName>VOE_AmbushedRaid</defName>
+        <label>ambush</label>
+        <description>An ongoing ambush battle.</description>
+        <worldObjectClass>VOE.AmbushedRaid</worldObjectClass>
+        <texture>World/WorldObjects/Ambush</texture>
+        <expandingIcon>true</expandingIcon>
+        <expandingIconTexture>World/WorldObjects/Expanding/Ambush</expandingIconTexture>
+        <expandingIconPriority>80</expandingIconPriority>
+        <expandMore>true</expandMore>
+        <blockExitGridUntilBattleIsWon>false</blockExitGridUntilBattleIsWon>
+        <isTempIncidentMapOwner>true</isTempIncidentMapOwner>
+        <IncidentTargetTags>
+            <li>Map_TempIncident</li>
+        </IncidentTargetTags>
+    </WorldObjectDef>
+</Defs>

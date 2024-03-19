@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <WorldObjectDef ParentName="OutpostBase">
+    <defName>Outpost_Factory</defName>
+    <label>factory outpost</label>
+    <description>Places a temporary, autonomously-led factory that specializes in production and fabrication of goods using machines based on mechanoid technology. As with the machines normally, a wide variety of goods can be produced. Once an ample amount is produced, a delivery will be made at the outskirts of a faction's primary colony.</description>
+    <worldObjectClass>FactoryOutpost.Outpost_Factory</worldObjectClass>
+    <expandingIconTexture>WorldObjects/OutpostFactory</expandingIconTexture>
+    <modExtensions>
+      <li Class="Outposts.OutpostExtension_Choose">
+        <MinPawns>4</MinPawns>
+        <CostToMake>
+          <VFE_ComponentMechanoid>12</VFE_ComponentMechanoid>
+        </CostToMake>
+      </li>
+    </modExtensions>
+  </WorldObjectDef>
+</Defs>
