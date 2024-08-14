@@ -39,7 +39,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Outposts">
-      <HintPath>..\..\..\..\VanillaExpandedFramework\1.4\Assemblies\Outposts.dll</HintPath>
+      <HintPath>..\..\..\..\VanillaExpandedFramework\1.5\Assemblies\Outposts.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
