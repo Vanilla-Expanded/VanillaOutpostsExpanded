@@ -62,7 +62,7 @@ public class Outpost_Defensive : Outpost
         var defenses = Find.WorldObjects.AllWorldObjects.OfType<Outpost_Defensive>()
            .Where(outpost => outpost.PawnCount > 0 && outpost.DoIntercept);
         var combatSkills = defenses.Sum(x => (x.TotalSkill(SkillDefOf.Shooting) + x.TotalSkill(SkillDefOf.Melee)) * x.InterceptDifficultyMultiplier);
-        parms.points *= GetRaidSizeReductionFactor(combatSkills);
+        parms.points *= (1 - GetRaidSizeReductionFactor(combatSkills));
         DoRaid = true;
         __instance.TryExecute(parms);
         DoRaid = false;
