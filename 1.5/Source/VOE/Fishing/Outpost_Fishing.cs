@@ -16,7 +16,7 @@ namespace FishingOutpost
         public override IEnumerable<Thing> ProducedThings()
         {
             var items = new List<Thing>();
-            foreach (var pawn in AllPawns)
+            foreach (var pawn in CapablePawns)
                 for (var i = 0; i < 15; i++)
                 {
                     var result = possibleFish.RandomElementByWeight(fish => fish.commonality);

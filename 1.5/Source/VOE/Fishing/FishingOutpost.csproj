@@ -48,7 +48,8 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="VCE-Fishing">
-      <HintPath>..\..\..\..\..\VanillaFishingExpanded\1.5\Assemblies\VCE-Fishing.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\workshop\content\294100\1914064942\1.5\Assemblies\VCE-Fishing.dll</HintPath>
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -31,9 +31,14 @@ namespace FactoryOutpost
             .GroupBy(comb => ThingDef.Named(comb.result)).Select(combs => combs.MaxBy(comb => comb.yield));
 
         public override string ProductionString() =>
-            "Outposts.WillProduce.1".Translate(chosenCombination.yield * PawnCount * 15, ResultDef.label, TimeTillProduction);
+            "Outposts.WillProduce.1".Translate(ProductionAmount(), ResultDef.label, TimeTillProduction);
 
-        public override IEnumerable<Thing> ProducedThings() => ResultDef.Make((int)(ProductionMultiplier * chosenCombination.yield * PawnCount * 5));
+        public override IEnumerable<Thing> ProducedThings() => ResultDef.Make(ProductionAmount());
+
+        private int ProductionAmount()
+        {
+            return (int)(ProductionMultiplier * chosenCombination.yield * PawnCount * 5);
+        }
 
         public override void PostAdd()
         {
