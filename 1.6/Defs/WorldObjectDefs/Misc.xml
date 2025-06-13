@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <WorldObjectDef>
+        <defName>VOE_TravellingArtilleryStrike</defName>
+        <label>artillery strike</label>
+        <description>Artillery strike in flight.</description>
+        <worldObjectClass>VOE.TravellingArtilleryStrike</worldObjectClass>
+        <texture>WorldObjects/TravelingArtilleryStrike</texture>
+        <useDynamicDrawer>true</useDynamicDrawer>
+        <expandingIcon>false</expandingIcon>
+        <expandMore>false</expandMore>
+        <allowCaravanIncidentsWhichGenerateMap>false</allowCaravanIncidentsWhichGenerateMap>
+    </WorldObjectDef>
+</Defs>
