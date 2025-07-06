@@ -51,10 +51,10 @@ public class Outpost_Mining : Outpost_ChooseResult
         return Mathf.RoundToInt(blocksPerDay * ore.building.mineableYield * ProductionMultiplier * additionalMult * 15 / 50);
     }
 
-    public static string CanSpawnOnWith(int tile, List<Pawn> pawns) =>
+    public static string CanSpawnOnWith(PlanetTile tile, List<Pawn> pawns) =>
         Find.WorldGrid[tile].hilliness == Hilliness.Flat ? "Outposts.MustBeMade.Hill".Translate() : null;
 
-    public static string RequirementsString(int tile, List<Pawn> pawns) =>
+    public static string RequirementsString(PlanetTile tile, List<Pawn> pawns) =>
         "Outposts.MustBeMade.Hill".Translate().Requirement(Find.WorldGrid[tile].hilliness != Hilliness.Flat);
 }
 

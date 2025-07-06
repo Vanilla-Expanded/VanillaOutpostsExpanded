@@ -2,6 +2,7 @@
 using System.Linq;
 using Outposts;
 using RimWorld;
+using RimWorld.Planet;
 using Verse;
 
 namespace VOE;
@@ -33,12 +34,12 @@ public class Outpost_Town : Outpost
 
     public override string ProductionString() => "Outposts.WillProduce.Pawns".Translate(TimeTillProduction).RawText;
 
-    public static string CanSpawnOnWith(int tile, List<Pawn> pawns) =>
+    public static string CanSpawnOnWith(PlanetTile tile, List<Pawn> pawns) =>
         Find.WorldObjects.Settlements.Count(s => Find.WorldGrid.ApproxDistanceInTiles(s.Tile, tile) < 10) < 3
             ? "Outposts.NearbySettlements".Translate(3, 10)
             : null;
 
-    public static string RequirementsString(int tile, List<Pawn> pawns) =>
+    public static string RequirementsString(PlanetTile tile, List<Pawn> pawns) =>
         "Outposts.NearbySettlements".Translate(3, 10)
            .Requirement(
                 Find.WorldObjects.Settlements.Count(s => Find.WorldGrid.ApproxDistanceInTiles(s.Tile, tile) < 10) >= 3);

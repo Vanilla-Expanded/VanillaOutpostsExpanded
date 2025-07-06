@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Outposts;
+using RimWorld.Planet;
 using VCE_Fishing;
 using Verse;
 
@@ -42,11 +43,11 @@ namespace FishingOutpost
 
         public override string ProductionString() => "Outposts.WillProduce.0".Translate(TimeTillProduction);
 
-        public static string CanSpawnOnWith(int tile, List<Pawn> pawns) => Find.World.CoastDirectionAt(tile) == Rot4.Invalid && Find.WorldGrid[tile].Rivers.NullOrEmpty()
+        public static string CanSpawnOnWith(PlanetTile tile, List<Pawn> pawns) => Find.World.CoastDirectionAt(tile) == Rot4.Invalid && Find.WorldGrid[tile] is SurfaceTile surface && surface.Rivers.NullOrEmpty()
             ? "Outposts.MustBeOnCoastOrRiver".Translate()
             : null;
 
-        public static string RequirementsString(int tile, List<Pawn> pawns) => "Outposts.MustBeOnCoastOrRiver".Translate()
-            .Requirement(Find.World.CoastDirectionAt(tile) != Rot4.Invalid || (Find.WorldGrid[tile].Rivers?.Any() ?? false));
+        public static string RequirementsString(PlanetTile tile, List<Pawn> pawns) => "Outposts.MustBeOnCoastOrRiver".Translate()
+            .Requirement(Find.World.CoastDirectionAt(tile) != Rot4.Invalid || Find.WorldGrid[tile] is SurfaceTile surface && (surface.Rivers?.Any() ?? false));
     }
 }

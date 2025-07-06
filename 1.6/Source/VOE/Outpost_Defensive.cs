@@ -45,12 +45,12 @@ public class Outpost_Defensive : Outpost
             "TryResolveRaidFaction"));*/
     }
 
-    public static string CanSpawnOnWith(int tile, List<Pawn> pawns) =>
+    public static string CanSpawnOnWith(PlanetTile tile, List<Pawn> pawns) =>
         pawns.Where(p => p.RaceProps.Humanlike).Any(p => p.WorkTagIsDisabled(WorkTags.Violent) || p.equipment.Primary is null)
             ? "Outposts.MustBeArmed".Translate()
             : null;
 
-    public static string RequirementsString(int tile, List<Pawn> pawns) =>
+    public static string RequirementsString(PlanetTile tile, List<Pawn> pawns) =>
         "Outposts.MustBeArmed".Translate()
            .Requirement(
                 pawns.Where(p => p.RaceProps.Humanlike).All(p => !p.WorkTagIsDisabled(WorkTags.Violent) && p.equipment.Primary is not null));
