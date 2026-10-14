@@ -1,11 +1,4 @@
 <loadFolders>
-	
-	<v1.4>
-		<li>/</li>
-		<li>1.4</li>
-		<li IfModActive="vanillaexpanded.vcef">1.4/Fishing</li>
-		<li IfModActive="oskarpotocki.vfe.mechanoid">1.4/Factory</li>
-	</v1.4>
 	<v1.5>
 		<li>/</li>
 		<li>1.5</li>
@@ -15,7 +8,9 @@
 	<v1.6>
 		<li>/</li>
 		<li>1.6</li>
-		
-		<!--<li IfModActive="oskarpotocki.vfe.mechanoid">1.6/Factory</li>-->
 	</v1.6>
+	<v1.7>
+		<li>/</li>
+		<li>1.6</li>
+	</v1.7>
 </loadFolders>
